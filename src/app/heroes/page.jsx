@@ -3,9 +3,58 @@
 import { AnimatePresence, motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
-import { useRef, useState } from "react";
+import { useState } from "react";
 
 const data = [
+  {
+    id: 127,
+    name: "Lukas",
+    roles: ["Fighter"],
+    portrait: "/images/heroes/127/Hero1271-portrait.png",
+    difficulty: 4,
+  },
+  {
+    id: 126,
+    name: "Suyou",
+    roles: ["Assassin", "Fighter"],
+    portrait: "/images/heroes/126/Hero1261-portrait.png",
+    difficulty: 7,
+  },
+  {
+    id: 125,
+    name: "Zhuxin",
+    roles: ["Mage"],
+    portrait: "/images/heroes/125/Hero1251-portrait.png",
+    difficulty: 3,
+  },
+  {
+    id: 116,
+    name: "Julian",
+    roles: ["Fighter", "Mage"],
+    portrait: "/images/heroes/116/Hero1161-portrait.png",
+    difficulty: 2,
+  },
+  {
+    id: 115,
+    name: "Xavier",
+    roles: ["Mage"],
+    portrait: "/images/heroes/115/Hero1151-portrait.png",
+    difficulty: 3,
+  },
+  {
+    id: 114,
+    name: "Melissa",
+    roles: ["Marksman"],
+    portrait: "/images/heroes/114/Hero1141-portrait.png",
+    difficulty: 4,
+  },
+  {
+    id: 113,
+    name: "Yin",
+    roles: ["Fighter", "Assassin"],
+    portrait: "/images/heroes/113/Hero1131-portrait.png",
+    difficulty: 4,
+  },
   {
     id: 84,
     name: "Ling",
@@ -138,7 +187,7 @@ function TabFilter({ data, setFiltered }) {
         ))}
       </div>
 
-      <div className="relative w-28 ml-9">
+      <div className="relative w-28 ml-9 ">
         <button
           className="relative w-full bg-color-base flex justify-between items-center cursor-default py-2 shadow-md text-sm"
           onClick={() => setIsDropdownOpen(!isDropdownOpen)}
@@ -163,7 +212,7 @@ function TabFilter({ data, setFiltered }) {
           </span>
         </button>
         {isDropdownOpen && (
-          <ul className="absolute mt-1 w-full bg-color-base py-1 text-sm shadow-lg">
+          <ul className="absolute z-40 mt-1 w-full bg-color-base py-1 text-sm shadow-lg">
             {difficulties.map((diff) => (
               <li
                 key={diff.id}

@@ -19,7 +19,7 @@ const Navbar = () => {
 
   return (
     <nav className="fixed top-0 left-0 start-0 bg-midnight w-full z-40">
-      <div className="container mx-auto px-2 relative h-14 flex items-center">
+      <div className="container mx-auto px-2 relative flex items-center">
         {/* Mobile menu button */}
         <div className="relative z-10 inset-y-0 left-0 flex items-center sm:hidden">
           <button
@@ -80,7 +80,7 @@ const Navbar = () => {
                     (pathName.startsWith("/heroes/") && item.href === "/heroes")
                       ? "bg-highlight text-midnight"
                       : "text-soft-white hover:bg-info"
-                  } block px-3 py-4  text-base font-dinnext uppercase font-bold`}
+                  } block p-3 text-base font-dinnext uppercase font-bold`}
                 >
                   {item.name}
                 </Link>
