@@ -1,7 +1,9 @@
 import prisma from "@/lib/prisma";
 import { NextResponse } from "next/server";
 
-export async function GET(request, { params: { keyword } }) {
+export async function GET(request, { params }) {
+  const keyword = (await params).keyword;
+
   const model = prisma[keyword]; // get dynamic table name
   if (model) {
     const data = await model.findMany();
