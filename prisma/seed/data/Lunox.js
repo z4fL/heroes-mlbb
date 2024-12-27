@@ -126,7 +126,7 @@ module.exports = {
         {
           type: "Skill 2",
           name: "Chaos Assault",
-          icon: "public/images/heroes/68/abilities/Hero68-skill2.png",
+          icon: "/images/heroes/68/abilities/Hero68-skill2.png",
           description:
             "Lunox unleashes Chaos Energy at an enemy, dealing Magic Damage equal to {baseDamage} (+{scallingAttack} Total Magic Power) plus {targetMaxHP} of the target's Max HP ({creepMaxHP} of Max HP against Creeps).\nGrants one stack of Power of Chaos after use.",
           descValues: {
@@ -443,15 +443,15 @@ module.exports = {
       create: [
         {
           name: "Bloody Mary",
-          icon: "public/images/heroes/68/skins/Hero682-icon.png",
-          portrait: "public/images/heroes/68/skins/Hero682-portrait.png",
-          splashArt: "public/images/heroes/68/skins/Hero682-splashart.jpg",
+          icon: "/images/heroes/68/skins/Hero682-icon.png",
+          portrait: "/images/heroes/68/skins/Hero682-portrait.png",
+          splashArt: "/images/heroes/68/skins/Hero682-splashart.jpg",
         },
         {
           name: "Cosmic Harmony",
-          icon: "public/images/heroes/68/skins/Hero683-icon.png",
-          portrait: "public/images/heroes/68/skins/Hero683-portrait.png",
-          splashArt: "public/images/heroes/68/skins/Hero683-splashart.jpg",
+          icon: "/images/heroes/68/skins/Hero683-icon.png",
+          portrait: "/images/heroes/68/skins/Hero683-portrait.png",
+          splashArt: "/images/heroes/68/skins/Hero683-splashart.jpg",
           skinTag: {
             connect: {
               name: "Elite",
@@ -460,9 +460,9 @@ module.exports = {
         },
         {
           name: "Ash Blossom",
-          icon: "public/images/heroes/68/skins/Hero684-icon.png",
-          portrait: "public/images/heroes/68/skins/Hero684-portrait.png",
-          splashArt: "public/images/heroes/68/skins/Hero684-splashart.jpg",
+          icon: "/images/heroes/68/skins/Hero684-icon.png",
+          portrait: "/images/heroes/68/skins/Hero684-portrait.png",
+          splashArt: "/images/heroes/68/skins/Hero684-splashart.jpg",
           skinTag: {
             connect: {
               name: "Starlight",
@@ -471,9 +471,9 @@ module.exports = {
         },
         {
           name: "Libra",
-          icon: "public/images/heroes/68/skins/Hero685-icon.png",
-          portrait: "public/images/heroes/68/skins/Hero685-portrait.png",
-          splashArt: "public/images/heroes/68/skins/Hero685-splashart.jpg",
+          icon: "/images/heroes/68/skins/Hero685-icon.png",
+          portrait: "/images/heroes/68/skins/Hero685-portrait.png",
+          splashArt: "/images/heroes/68/skins/Hero685-splashart.jpg",
           skinTag: {
             connect: {
               name: "Zodiac",
@@ -482,9 +482,9 @@ module.exports = {
         },
         {
           name: "Butterfly Seraphim",
-          icon: "public/images/heroes/68/skins/Hero686-icon.png",
-          portrait: "public/images/heroes/68/skins/Hero686-portrait.png",
-          splashArt: "public/images/heroes/68/skins/Hero686-splashart.jpg",
+          icon: "/images/heroes/68/skins/Hero686-icon.png",
+          portrait: "/images/heroes/68/skins/Hero686-portrait.png",
+          splashArt: "/images/heroes/68/skins/Hero686-splashart.jpg",
           skinTag: {
             connect: {
               name: "Luckybox",
@@ -493,9 +493,9 @@ module.exports = {
         },
         {
           name: "Eyes of Eternity",
-          icon: "public/images/heroes/68/skins/Hero687-icon.png",
-          portrait: "public/images/heroes/68/skins/Hero687-portrait.png",
-          splashArt: "public/images/heroes/68/skins/Hero687-splashart.jpg",
+          icon: "/images/heroes/68/skins/Hero687-icon.png",
+          portrait: "/images/heroes/68/skins/Hero687-portrait.png",
+          splashArt: "/images/heroes/68/skins/Hero687-splashart.jpg",
           skinTag: {
             connect: {
               name: "Epic",
@@ -504,9 +504,9 @@ module.exports = {
         },
         {
           name: "Revelation",
-          icon: "public/images/heroes/68/skins/Hero688-icon.png",
-          portrait: "public/images/heroes/68/skins/Hero688-portrait.png",
-          splashArt: "public/images/heroes/68/skins/Hero688-splashart.jpg",
+          icon: "/images/heroes/68/skins/Hero688-icon.png",
+          portrait: "/images/heroes/68/skins/Hero688-portrait.png",
+          splashArt: "/images/heroes/68/skins/Hero688-splashart.jpg",
           skinTag: {
             connect: {
               name: "Epic",
@@ -515,9 +515,9 @@ module.exports = {
         },
         {
           name: "Divine Goddess",
-          icon: "public/images/heroes/68/skins/Hero689-icon.png",
-          portrait: "public/images/heroes/68/skins/Hero689-portrait.png",
-          splashArt: "public/images/heroes/68/skins/Hero689-splashart.jpg",
+          icon: "/images/heroes/68/skins/Hero689-icon.png",
+          portrait: "/images/heroes/68/skins/Hero689-portrait.png",
+          splashArt: "/images/heroes/68/skins/Hero689-splashart.jpg",
           skinTag: {
             connect: {
               name: "Legend",
@@ -526,9 +526,9 @@ module.exports = {
         },
         {
           name: "Nature's Harmony",
-          icon: "public/images/heroes/68/skins/Hero6810-icon.png",
-          portrait: "public/images/heroes/68/skins/Hero6810-portrait.png",
-          splashArt: "public/images/heroes/68/skins/Hero6810-splashart.jpg",
+          icon: "/images/heroes/68/skins/Hero6810-icon.png",
+          portrait: "/images/heroes/68/skins/Hero6810-portrait.png",
+          splashArt: "/images/heroes/68/skins/Hero6810-splashart.jpg",
           skinTag: {
             connect: {
               name: "Elite",

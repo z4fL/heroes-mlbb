@@ -256,15 +256,15 @@ module.exports = {
       create: [
         {
           name: "Fiery Dance",
-          icon: "public/images/heroes/84/skins/Hero842-icon.png",
-          portrait: "public/images/heroes/84/skins/Hero842-portrait.png",
-          splashArt: "public/images/heroes/84/skins/Hero842-splashart.jpg",
+          icon: "/images/heroes/84/skins/Hero842-icon.png",
+          portrait: "/images/heroes/84/skins/Hero842-portrait.png",
+          splashArt: "/images/heroes/84/skins/Hero842-splashart.jpg",
         },
         {
           name: "Street Punk",
-          icon: "public/images/heroes/84/skins/Hero843-icon.png",
-          portrait: "public/images/heroes/84/skins/Hero843-portrait.png",
-          splashArt: "public/images/heroes/84/skins/Hero843-splashart.jpg",
+          icon: "/images/heroes/84/skins/Hero843-icon.png",
+          portrait: "/images/heroes/84/skins/Hero843-portrait.png",
+          splashArt: "/images/heroes/84/skins/Hero843-splashart.jpg",
           skinTag: {
             connect: {
               name: "Starlight",
@@ -273,9 +273,9 @@ module.exports = {
         },
         {
           name: "Night Shade",
-          icon: "public/images/heroes/84/skins/Hero844-icon.png",
-          portrait: "public/images/heroes/84/skins/Hero844-portrait.png",
-          splashArt: "public/images/heroes/84/skins/Hero844-splashart.jpg",
+          icon: "/images/heroes/84/skins/Hero844-icon.png",
+          portrait: "/images/heroes/84/skins/Hero844-portrait.png",
+          splashArt: "/images/heroes/84/skins/Hero844-splashart.jpg",
           skinTag: {
             connect: {
               name: "Dragon Tamer",
@@ -284,9 +284,9 @@ module.exports = {
         },
         {
           name: "Cosmo Guard",
-          icon: "public/images/heroes/84/skins/Hero845-icon.png",
-          portrait: "public/images/heroes/84/skins/Hero845-portrait.png",
-          splashArt: "public/images/heroes/84/skins/Hero845-splashart.jpg",
+          icon: "/images/heroes/84/skins/Hero845-icon.png",
+          portrait: "/images/heroes/84/skins/Hero845-portrait.png",
+          splashArt: "/images/heroes/84/skins/Hero845-splashart.jpg",
           skinTag: {
             connect: {
               name: "Special",
@@ -295,9 +295,9 @@ module.exports = {
         },
         {
           name: "Serene Plume",
-          icon: "public/images/heroes/84/skins/Hero846-icon.png",
-          portrait: "public/images/heroes/84/skins/Hero846-portrait.png",
-          splashArt: "public/images/heroes/84/skins/Hero846-splashart.jpg",
+          icon: "/images/heroes/84/skins/Hero846-icon.png",
+          portrait: "/images/heroes/84/skins/Hero846-portrait.png",
+          splashArt: "/images/heroes/84/skins/Hero846-splashart.jpg",
           skinTag: {
             connect: {
               name: "Collector",
@@ -306,9 +306,9 @@ module.exports = {
         },
         {
           name: "M-World Ling",
-          icon: "public/images/heroes/84/skins/Hero847-icon.png",
-          portrait: "public/images/heroes/84/skins/Hero847-portrait.png",
-          splashArt: "public/images/heroes/84/skins/Hero847-splashart.jpg",
+          icon: "/images/heroes/84/skins/Hero847-icon.png",
+          portrait: "/images/heroes/84/skins/Hero847-portrait.png",
+          splashArt: "/images/heroes/84/skins/Hero847-splashart.jpg",
           skinTag: {
             connect: {
               name: "M-World",
@@ -317,9 +317,9 @@ module.exports = {
         },
         {
           name: "Lord Shen",
-          icon: "public/images/heroes/84/skins/Hero848-icon.png",
-          portrait: "public/images/heroes/84/skins/Hero848-portrait.png",
-          splashArt: "public/images/heroes/84/skins/Hero848-splashart.jpg",
+          icon: "/images/heroes/84/skins/Hero848-icon.png",
+          portrait: "/images/heroes/84/skins/Hero848-portrait.png",
+          splashArt: "/images/heroes/84/skins/Hero848-splashart.jpg",
           skinTag: {
             connect: {
               name: "Kung Fu Panda",
