@@ -1,0 +1,111 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Hero {
+  id                   Int          @id @default(autoincrement()) @db.SmallInt
+  name                 String       @db.VarChar(20)
+  alias                String       @db.VarChar(25)
+  icon                 String       @db.VarChar(255)
+  portrait             String       @db.VarChar(255)
+  splashArt            String       @db.VarChar(255)
+  abilities            Ability[]
+  roles                Role[]
+  specialities         Speciality[]
+  positions            Position[]
+  durability           Int          @db.SmallInt
+  offense              Int          @db.SmallInt
+  controlEffect        Int          @db.SmallInt
+  difficulty           Int          @db.SmallInt
+  abilityResource      String?      @db.VarChar(10)
+  abilityResourceColor String?      @db.VarChar(10)
+  abilityResourceName  String?      @db.VarChar(25)
+  skins                Skin[]
+}
+
+model Ability {
+  id              Int              @id @default(autoincrement())
+  heroId          Int              @db.SmallInt
+  hero            Hero             @relation(fields: [heroId], references: [id])
+  type            String           @db.VarChar(10) // passive, skill 1, 2, 3/ult
+  name            String           @db.VarChar(50)
+  icon            String           @db.VarChar(255) // URL/icon path
+  description     String           @db.Text
+  descValues      Json? // {baseDamage: {value: 0, color: ""},}
+  skillTerms      SkillTerm[] // References skill terms details
+  abilityScalings AbilityScaling[]
+  abilityTags     AbilityTag[] // References tag details
+}
+
+model AbilityScaling {
+  id          Int     @id @default(autoincrement())
+  abilityId   Int
+  ability     Ability @relation(fields: [abilityId], references: [id])
+  type        String  @db.VarChar(50) // e.g., "base damage", "cooldown", "cost", "shield"
+  levelValues Json // Stores scaling values for all levels (e.g., {level1: 100, level2: 200, ...})
+}
+
+model SkillTerm {
+  id        Int       @id @default(autoincrement())
+  name      String    @db.VarChar(50) @unique // e.g., "Basic Attack", "Slow", "Airborne"
+  color     String    @db.Char(7) // RGB color in hex format
+  abilities Ability[]
+}
+
+model AbilityTag {
+  id        Int       @id @default(autoincrement()) @db.SmallInt
+  name      String    @db.VarChar(50) // e.g., "buff", "damage"
+  color     String    @db.Char(7) // RGB color in hex format (e.g., "#FF5733")
+  abilities Ability[]
+}
+
+model Role {
+  id     Int    @id @default(autoincrement()) @db.SmallInt
+  name   String @db.VarChar(10)
+  icon   String @db.VarChar(255)
+  heroes Hero[]
+}
+
+model Position {
+  id     Int    @id @default(autoincrement()) @db.SmallInt
+  name   String @db.VarChar(10)
+  icon   String @db.VarChar(255)
+  heroes Hero[]
+}
+
+model Speciality {
+  id     Int    @id @default(autoincrement()) @db.SmallInt
+  name   String @db.VarChar(15)
+  heroes Hero[]
+}
+
+model Skin {
+  id        Int      @id @default(autoincrement())
+  heroId    Int      @db.SmallInt
+  hero      Hero     @relation(fields: [heroId], references: [id])
+  name      String   @db.VarChar(25)
+  icon      String   @db.VarChar(255)
+  portrait  String   @db.VarChar(255)
+  splashArt String   @db.VarChar(255)
+  skinTagId Int?
+  skinTag   SkinTag? @relation(fields: [skinTagId], references: [id])
+}
+
+model SkinTag {
+  id    Int    @id @default(autoincrement())
+  name  String @unique @db.VarChar(25)
+  icon  String @db.VarChar(255)
+  skins Skin[]
+}
