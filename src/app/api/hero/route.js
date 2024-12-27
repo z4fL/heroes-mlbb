@@ -1,6 +1,5 @@
-import { PrismaClient } from "@prisma/client";
 import { NextResponse } from "next/server";
-
+import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 // import prisma from "@/lib/prisma";
 
@@ -10,6 +9,8 @@ export async function GET() {
       select: {
         id: true,
         name: true,
+        portrait: true,
+        difficulty: true,
         roles: {
           select: {
             name: true
