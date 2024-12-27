@@ -84,7 +84,11 @@ const Heroes = () => {
         </h1> */}
         {heroes.length !== 0 ? (
           <div className="max-w-screen-lg mx-auto">
-            <TabFilter data={heroes} setFiltered={setFiltered} />
+            <TabFilter
+              data={heroes}
+              filtered={filtered}
+              setFiltered={setFiltered}
+            />
             <GridHeroes data={filtered} />
           </div>
         ) : (
@@ -141,8 +145,9 @@ const difficulties = [
   { id: 5, name: "Very Hard", threshold: 10 },
 ];
 
-function TabFilter({ data, setFiltered }) {
+function TabFilter({ data, filtered, setFiltered }) {
   const [roles, setRoles] = useState(arrayRole);
+  const [isAscending, setIsAscending] = useState(true);
   const [difficulty, setDifficulty] = useState({
     id: 0,
     name: "All",
@@ -152,10 +157,28 @@ function TabFilter({ data, setFiltered }) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const handleRoleChange = (roleName) => {
-    setActive(roleName);
+    if (active === roleName) {
+      // Jika tab role yang sama di-klik, ubah urutan sort
+      const sortedHero = [...filtered].sort((a, b) =>
+        isAscending ? b.id - a.id : a.id - b.id
+      );
 
-    const filteredHero = data.filter((hero) => hero.roles.includes(roleName));
-    setFiltered(roleName === "All" ? data : filteredHero);
+      setFiltered(sortedHero);
+      setIsAscending(!isAscending); // Toggle urutan sort
+    } else {
+      // Jika tab role yang berbeda di-klik, filter hero berdasarkan role
+      setActive(roleName); // Update active tab
+      if (roleName === "All") {
+        setFiltered(data);
+      } else {
+        const filteredHero = data.filter((hero) =>
+          hero.roles.includes(roleName)
+        );
+        setFiltered(filteredHero);
+      }
+
+      setIsAscending(true); // Reset ke ASC setiap ganti role
+    }
   };
 
   const handleDifficultyChange = (diff) => {
@@ -237,15 +260,18 @@ function TabFilter({ data, setFiltered }) {
 function GridHeroes({ data }) {
   return (
     <div className="mt-8 grid grid-cols-5 gap-4">
-      <AnimatePresence>
+      <AnimatePresence mode="popLayout">
         {data.map((hero) => (
           <motion.div
             key={hero.id}
-            layout
+            layout="position"
+            layoutId={`hero-${hero.id}`}
+            layoutDependency={data}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
+            transition={{
+              opacity: { duration: 0.3 }, // Durasi animasi opacity
+            }}
           >
             <Link
               href={`/hero/${hero.id}`}
