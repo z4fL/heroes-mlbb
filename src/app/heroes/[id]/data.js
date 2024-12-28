@@ -124,6 +124,16 @@ export const dataHero = {
       ],
       skillTerms: [
         {
+          id: 10,
+          name: "Passive",
+          color: "#EAC56B",
+        },
+        {
+          id: 10,
+          name: "Active",
+          color: "#EAC56B",
+        },
+        {
           id: 11,
           name: "Lightness Points",
           color: "#EAC56B",
@@ -208,8 +218,18 @@ export const dataHero = {
       skillTerms: [
         {
           id: 15,
+          name: "Physical Attack",
+          color: "#fba51f",
+        },
+        {
+          id: 15,
           name: "Physical Damage",
           color: "#FB1F1F",
+        },
+        {
+          id: 20,
+          name: "Defiant Sword",
+          color: "#EAC56B",
         },
         {
           id: 16,

@@ -57,6 +57,14 @@ module.exports = {
           skillTerms: {
             connectOrCreate: [
               {
+                where: { name: "Passive" },
+                create: { name: "Passive", color: "#EAC56B" },
+              },
+              {
+                where: { name: "Active" },
+                create: { name: "Active", color: "#EAC56B" },
+              },
+              {
                 where: { name: "Critical Chance" },
                 create: { name: "Critical Chance", color: "#EAC56B" },
               },
@@ -118,6 +126,10 @@ module.exports = {
               {
                 where: { name: "Physical Damage" },
                 create: { name: "Physical Damage", color: "#FB1F1F" },
+              },
+              {
+                where: { name: "Defiant Sword" },
+                create: { name: "Defiant Sword", color: "#EAC56B" },
               },
               {
                 where: { name: "Basic Attack" },
@@ -329,4 +341,4 @@ module.exports = {
       ],
     },
   },
-}
+};
