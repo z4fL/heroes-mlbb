@@ -169,12 +169,23 @@ function FormatDescription({ description, descValues, skillTerms }) {
 
   const highlightSkillTerms = (desc) => {
     return skillTerms.reduce((formattedDesc, term) => {
-      const regex = new RegExp(`\\b${term.name}\\b`, "g");
-
-      return formattedDesc.replace(
-        regex,
+      // Pertama, ganti istilah skillTerms di dalam teks biasa
+      const regexTerm = new RegExp(`\\b${term.name}\\b`, "g");
+      formattedDesc = formattedDesc.replace(
+        regexTerm,
         `<span style="color: ${term.color};">${term.name}</span>`
       );
+
+      // Kedua, cari dan ganti teks dalam tanda kurung yang mengandung skillTerms
+      const regexInParentheses = new RegExp(
+        `\\(\\+[^)]*${term.name}[^)]*\\)`,
+        "g"
+      );
+      formattedDesc = formattedDesc.replace(regexInParentheses, (match) => {
+        return `<span style="color: ${term.color};">${match}</span>`;
+      });
+
+      return formattedDesc;
     }, desc);
   };
 

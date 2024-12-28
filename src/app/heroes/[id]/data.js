@@ -217,7 +217,7 @@ export const dataHero = {
       ],
       skillTerms: [
         {
-          id: 15,
+          id: 14,
           name: "Physical Attack",
           color: "#fba51f",
         },
@@ -300,6 +300,11 @@ export const dataHero = {
           id: 11,
           name: "Lightness Points",
           color: "#EAC56B",
+        },
+        {
+          id: 14,
+          name: "Physical Attack",
+          color: "#fba51f",
         },
         {
           id: 15,
