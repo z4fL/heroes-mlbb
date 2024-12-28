@@ -136,24 +136,21 @@ const TopSection = ({ data }) => {
   };
 
   return (
-    <div className="relative w-full h-[39rem] overflow-hidden">
+    <div className="relative w-full max-w-screen-xl h-[39rem] overflow-hidden">
       {/* Start Slider */}
       <div className="w-full">
         <div className="flex w-full h-full">
           {skins.map((skin, index) => (
             <div
               key={index}
-              className={`relative shrink-0 w-full h-full ${
-                index !== currentSkin && "hidden"
-              }`}
+              className={`relative w-full h-[720px] ${index !== currentSkin ? "hidden" : ""}`}
             >
               <Image
                 src={skin.splashArt}
                 alt={skin.name}
-                width={1280}
-                height={720}
-                className="w-full h-full object-cover object-top"
+                fill={true}
                 quality={70}
+                className="object-cover object-top"
                 draggable={false}
               />
             </div>
@@ -237,9 +234,9 @@ const TopSection = ({ data }) => {
         <div className="flex justify-between items-center pb-3">
           <div className="flex grow">
             <div className="relative flex flex-col font-tungsten uppercase">
-              <h3 className="text-midnight text-4xl z-20 -mb-5">{data.name}</h3>
+              <h3 className="text-midnight text-5xl z-20 -mb-5">{data.name}</h3>
               <div className="flex items-center z-10">
-                <h2 className="text-highlight text-5xl line-clamp-2">
+                <h2 className="text-highlight text-4xl line-clamp-2">
                   {skins.at(currentSkin).name}
                 </h2>
                 {skins.at(currentSkin).skinTag && (
@@ -305,7 +302,7 @@ const TopSection = ({ data }) => {
           <div className="transition-all duration-500 overflow-hidden">
             <div className="flex justify-start items-center py-3 border-t border-charcoal/40">
               <p className="font-dinnext font-bold whitespace-nowrap inline">
-                Specialities : 
+                Specialities :
               </p>
               <span className="font-dinnext font-bold inline whitespace-nowrap">
                 {specialities.join(" / ")}

@@ -141,14 +141,14 @@ export const dataHero = {
       ],
       abilityTags: [
         {
-          id: 1,
-          name: "Buff",
-          color: "#4f9cb8",
-        },
-        {
           id: 10,
           name: "Mobility",
           color: "#a269c7",
+        },
+        {
+          id: 1,
+          name: "Buff",
+          color: "#4f9cb8",
         },
       ],
     },
@@ -219,14 +219,14 @@ export const dataHero = {
       ],
       abilityTags: [
         {
-          id: 10,
-          name: "Mobility",
-          color: "#a269c7",
-        },
-        {
           id: 13,
           name: "Damage",
           color: "#c77955",
+        },
+        {
+          id: 10,
+          name: "Mobility",
+          color: "#a269c7",
         },
       ],
     },
