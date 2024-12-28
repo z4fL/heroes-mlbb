@@ -86,11 +86,10 @@ const BottomSecton = ({ data }) => {
                     </div>
                   ))}
                 </div>
-                <p
-                  className="mt-3 mb-4 whitespace-pre-wrap text-pretty text-base text-soft-white inline"
-                  dangerouslySetInnerHTML={{
-                    __html: activeAbility.description,
-                  }}
+                <FormatDescription
+                  description={activeAbility.description}
+                  skillTerms={activeAbility.skillTerms}
+                  descValues={activeAbility.descValues}
                 />
               </div>
             </div>
@@ -162,6 +161,34 @@ const BottomSecton = ({ data }) => {
     </div>
   );
 };
+
+function FormatDescription({ description, descValues, skillTerms }) {
+  const replacePlaceholders = (desc) => {
+    return desc.replace(/\{(\w+)\}/g, (_, key) => descValues[key] || `${key}`);
+  };
+
+  const highlightSkillTerms = (desc) => {
+    return skillTerms.reduce((formattedDesc, term) => {
+      const regex = new RegExp(`\\b${term.name}\\b`, "g");
+
+      return formattedDesc.replace(
+        regex,
+        `<span style="color: ${term.color};">${term.name}</span>`
+      );
+    }, desc);
+  };
+
+  const format = highlightSkillTerms(replacePlaceholders(description));
+
+  return (
+    <p
+      className="mt-3 mb-4 whitespace-pre-wrap text-pretty text-base text-soft-white inline"
+      dangerouslySetInnerHTML={{
+        __html: format,
+      }}
+    />
+  );
+}
 
 function CooldownDisplay({ levelValues }) {
   return (
