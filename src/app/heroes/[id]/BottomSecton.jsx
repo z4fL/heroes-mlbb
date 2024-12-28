@@ -35,8 +35,8 @@ const BottomSecton = ({ data }) => {
   };
 
   return (
-    <div className="relative z-10 -mt-10 py-20 w-full bg-midnight min-h-[400px]">
-      <div className="h-screen flex flex-col items-center">
+    <div className="relative z-10 -mt-10 pt-16 w-full bg-midnight min-h-[400px]">
+      <div className="flex flex-col items-center">
         <h1 className="pb-5 text-5xl text-highlight text-center font-tungsten uppercase">
           Skill introduction
         </h1>

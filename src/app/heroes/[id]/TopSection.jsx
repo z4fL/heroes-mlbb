@@ -136,7 +136,7 @@ const TopSection = ({ data }) => {
   };
 
   return (
-    <div className="relative w-full max-w-screen-xl h-[39rem] overflow-hidden">
+    <div className="relative w-full max-w-screen-2xl h-[39rem] overflow-hidden">
       {/* Start Slider */}
       <div className="w-full">
         <div className="flex w-full h-full">

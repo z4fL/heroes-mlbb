@@ -317,6 +317,11 @@ export const dataHero = {
           color: "#EAC56B",
         },
         {
+          id: 17,
+          name: "Sword Field",
+          color: "#EAC56B",
+        },
+        {
           id: 18,
           name: "Tempest of Blades",
           color: "#EAC56B",
