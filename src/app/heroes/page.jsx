@@ -208,7 +208,7 @@ function GridHeroes({ data }) {
             }}
           >
             <Link
-              href={`/hero/${hero.id}`}
+              href={`/heroes/${hero.id}`}
               className="block relative h-72 overflow-hidden group trasition ease-out duration-300 hover:transform hover:scale-110 hover:z-10"
             >
               <Image

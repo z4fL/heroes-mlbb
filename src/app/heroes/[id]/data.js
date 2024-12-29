@@ -12,29 +12,13 @@ export const dataHero = {
   abilityResource: "Energy",
   abilityResourceColor: "#dddcdc",
   abilityResourceName: "Lightness Points",
-  roles: [
-    {
-      id: 3,
-      name: "Assassin",
-      icon: "/images/roles/assassin_icon.png",
-    },
-  ],
+  roles: [{ id: 3, name: "Assassin", icon: "/images/roles/assassin_icon.png" }],
   positions: [
-    {
-      id: 2,
-      name: "Jungler",
-      icon: "/images/positions/jungler_icon.png",
-    },
+    { id: 2, name: "Jungler", icon: "/images/positions/jungler_icon.png" },
   ],
   specialities: [
-    {
-      id: 7,
-      name: "Burst",
-    },
-    {
-      id: 13,
-      name: "Chase",
-    },
+    { id: 7, name: "Burst" },
+    { id: 13, name: "Chase" },
   ],
   abilities: [
     {
@@ -51,31 +35,13 @@ export const dataHero = {
         lightnessPointAtDmg: 5,
         lightnessPointOnWall: 4,
       },
-      abilityScalings: [],
+      scalings: null,
       skillTerms: [
-        {
-          id: 11,
-          name: "Lightness Points",
-          color: "#EAC56B",
-        },
-        {
-          id: 12,
-          name: "Critical Chance",
-          color: "#EAC56B",
-        },
-        {
-          id: 13,
-          name: "Critical Damage",
-          color: "#EAC56B",
-        },
+        { id: 12, name: "Lightness Points", color: "#EAC56B" },
+        { id: 13, name: "Critical Chance", color: "#EAC56B" },
+        { id: 14, name: "Critical Damage", color: "#EAC56B" },
       ],
-      abilityTags: [
-        {
-          id: 1,
-          name: "Buff",
-          color: "#4f9cb8",
-        },
-      ],
+      abilityTags: [{ id: 1, name: "Buff", color: "#4f9cb8" }],
     },
     {
       id: 9,
@@ -91,10 +57,8 @@ export const dataHero = {
         gainMovementSpeed: "30%",
         increaseCritChance: "2.5%",
       },
-      abilityScalings: [
+      scalings: [
         {
-          id: 20,
-          abilityId: 9,
           type: "Critical Chance",
           levelValues: {
             lvl1: "2.5%",
@@ -105,61 +69,19 @@ export const dataHero = {
             lvl6: "12.5%",
           },
         },
-        {
-          id: 21,
-          abilityId: 9,
-          type: "Cooldown",
-          levelValues: {
-            all: 20,
-          },
-        },
-        {
-          id: 22,
-          abilityId: 9,
-          type: "Energy Cost",
-          levelValues: {
-            all: 30,
-          },
-        },
+        { type: "Cooldown", levelValues: { all: 20 } },
+        { type: "Energy Cost", levelValues: { all: 30 } },
       ],
       skillTerms: [
-        {
-          id: 10,
-          name: "Passive",
-          color: "#EAC56B",
-        },
-        {
-          id: 10,
-          name: "Active",
-          color: "#EAC56B",
-        },
-        {
-          id: 11,
-          name: "Lightness Points",
-          color: "#EAC56B",
-        },
-        {
-          id: 12,
-          name: "Critical Chance",
-          color: "#EAC56B",
-        },
-        {
-          id: 14,
-          name: "Half-Stealth",
-          color: "#EAC56B",
-        },
+        { id: 12, name: "Lightness Points", color: "#EAC56B" },
+        { id: 13, name: "Critical Chance", color: "#EAC56B" },
+        { id: 15, name: "Passive", color: "#EAC56B" },
+        { id: 16, name: "Active", color: "#EAC56B" },
+        { id: 17, name: "Half-Stealth", color: "#EAC56B" },
       ],
       abilityTags: [
-        {
-          id: 10,
-          name: "Mobility",
-          color: "#a269c7",
-        },
-        {
-          id: 1,
-          name: "Buff",
-          color: "#4f9cb8",
-        },
+        { id: 1, name: "Buff", color: "#4f9cb8" },
+        { id: 10, name: "Mobility", color: "#a269c7" },
       ],
     },
     {
@@ -176,10 +98,8 @@ export const dataHero = {
         durationSlow: "1.5",
         scallingAttack: "50%",
       },
-      abilityScalings: [
+      scalings: [
         {
-          id: 23,
-          abilityId: 10,
           type: "Base Damage",
           levelValues: {
             lvl1: 300,
@@ -190,64 +110,19 @@ export const dataHero = {
             lvl6: 400,
           },
         },
-        {
-          id: 24,
-          abilityId: 10,
-          type: "Cooldown",
-          levelValues: {
-            all: 2.5,
-          },
-        },
-        {
-          id: 25,
-          abilityId: 10,
-          type: "Energy Cost",
-          levelValues: {
-            all: 35,
-          },
-        },
-        {
-          id: 26,
-          abilityId: 10,
-          type: "Attack Effects",
-          levelValues: {
-            all: "100%",
-          },
-        },
+        { type: "Cooldown", levelValues: { all: 2.5 } },
+        { type: "Energy Cost", levelValues: { all: 35 } },
+        { type: "Attack Effects", levelValues: { all: "100%" } },
       ],
       skillTerms: [
-        {
-          id: 14,
-          name: "Physical Attack",
-          color: "#fba51f",
-        },
-        {
-          id: 15,
-          name: "Physical Damage",
-          color: "#FB1F1F",
-        },
-        {
-          id: 20,
-          name: "Defiant Sword",
-          color: "#EAC56B",
-        },
-        {
-          id: 16,
-          name: "Basic Attack",
-          color: "#EAC56B",
-        },
+        { id: 14, name: "Physical Attack", color: "#fba51f" },
+        { id: 18, name: "Physical Damage", color: "#FB1F1F" },
+        { id: 19, name: "Defiant Sword", color: "#EAC56B" },
+        { id: 20, name: "Basic Attack", color: "#EAC56B" },
       ],
       abilityTags: [
-        {
-          id: 13,
-          name: "Damage",
-          color: "#c77955",
-        },
-        {
-          id: 10,
-          name: "Mobility",
-          color: "#a269c7",
-        },
+        { id: 10, name: "Mobility", color: "#a269c7" },
+        { id: 13, name: "Damage", color: "#c77955" },
       ],
     },
     {
@@ -268,86 +143,26 @@ export const dataHero = {
         gainLightnessPoints: 25,
         durationMovementSpeed: 1.5,
       },
-      abilityScalings: [
+      scalings: [
         {
-          id: 27,
-          abilityId: 11,
           type: "Base Damage",
-          levelValues: {
-            lvl1: 250,
-            lvl2: 350,
-            lvl3: 450,
-          },
+          levelValues: { lvl1: 250, lvl2: 350, lvl3: 450 },
         },
-        {
-          id: 28,
-          abilityId: 11,
-          type: "Cooldown",
-          levelValues: {
-            lvl1: 52,
-            lvl2: 49,
-            lvl3: 46,
-          },
-        },
+        { type: "Cooldown", levelValues: { lvl1: 52, lvl2: 49, lvl3: 46 } },
       ],
       skillTerms: [
-        {
-          id: 6,
-          name: "Incivible",
-          color: "#EAC56B",
-        },
-        {
-          id: 11,
-          name: "Lightness Points",
-          color: "#EAC56B",
-        },
-        {
-          id: 14,
-          name: "Physical Attack",
-          color: "#fba51f",
-        },
-        {
-          id: 15,
-          name: "Physical Damage",
-          color: "#FB1F1F",
-        },
-        {
-          id: 17,
-          name: "Airborne",
-          color: "#EAC56B",
-        },
-        {
-          id: 17,
-          name: "Sword Field",
-          color: "#EAC56B",
-        },
-        {
-          id: 18,
-          name: "Tempest of Blades",
-          color: "#EAC56B",
-        },
-        {
-          id: 19,
-          name: "Finch Poise",
-          color: "#EAC56B",
-        },
-        {
-          id: 20,
-          name: "Defiant Sword",
-          color: "#EAC56B",
-        },
+        { id: 7, name: "Incivible", color: "#EAC56B" },
+        { id: 12, name: "Lightness Points", color: "#EAC56B" },
+        { id: 14, name: "Physical Attack", color: "#fba51f" },
+        { id: 18, name: "Physical Damage", color: "#FB1F1F" },
+        { id: 19, name: "Defiant Sword", color: "#EAC56B" },
+        { id: 21, name: "Airborne", color: "#EAC56B" },
+        { id: 22, name: "Tempest of Blades", color: "#EAC56B" },
+        { id: 23, name: "Finch Poise", color: "#EAC56B" },
       ],
       abilityTags: [
-        {
-          id: 14,
-          name: "Burst",
-          color: "#c77955",
-        },
-        {
-          id: 22,
-          name: "CC",
-          color: "#cd5d6d",
-        },
+        { id: 14, name: "Burst", color: "#c77955" },
+        { id: 22, name: "CC", color: "#cd5d6d" },
       ],
     },
   ],
@@ -365,61 +180,19 @@ export const dataHero = {
     {
       id: 11,
       heroId: 84,
-      name: "Lord Shen",
-      icon: "/images/heroes/84/skins/Hero848-icon.png",
-      portrait: "/images/heroes/84/skins/Hero848-portrait.png",
-      splashArt: "/images/heroes/84/skins/Hero848-splashart.jpg",
-      skinTagId: 54,
+      name: "Street Punk",
+      icon: "/images/heroes/84/skins/Hero843-icon.png",
+      portrait: "/images/heroes/84/skins/Hero843-portrait.png",
+      splashArt: "/images/heroes/84/skins/Hero843-splashart.jpg",
+      skinTagId: 21,
       skinTag: {
-        id: 54,
-        name: "Kung Fu Panda",
-        icon: "/images/skin-tag/Kung_Fu_Panda_SkinTag.png",
+        id: 21,
+        name: "Starlight",
+        icon: "/images/skin-tag/Starlight_SkinTag.png",
       },
     },
     {
       id: 12,
-      heroId: 84,
-      name: "M-World Ling",
-      icon: "/images/heroes/84/skins/Hero847-icon.png",
-      portrait: "/images/heroes/84/skins/Hero847-portrait.png",
-      splashArt: "/images/heroes/84/skins/Hero847-splashart.jpg",
-      skinTagId: 13,
-      skinTag: {
-        id: 13,
-        name: "M-World",
-        icon: "/images/skin-tag/M-World_SkinTag.png",
-      },
-    },
-    {
-      id: 13,
-      heroId: 84,
-      name: "Serene Plume",
-      icon: "/images/heroes/84/skins/Hero846-icon.png",
-      portrait: "/images/heroes/84/skins/Hero846-portrait.png",
-      splashArt: "/images/heroes/84/skins/Hero846-splashart.jpg",
-      skinTagId: 32,
-      skinTag: {
-        id: 32,
-        name: "Collector",
-        icon: "/images/skin-tag/Collector_SkinTag.png",
-      },
-    },
-    {
-      id: 14,
-      heroId: 84,
-      name: "Cosmo Guard",
-      icon: "/images/heroes/84/skins/Hero845-icon.png",
-      portrait: "/images/heroes/84/skins/Hero845-portrait.png",
-      splashArt: "/images/heroes/84/skins/Hero845-splashart.jpg",
-      skinTagId: 2,
-      skinTag: {
-        id: 2,
-        name: "Special",
-        icon: "/images/skin-tag/Special_SkinTag.png",
-      },
-    },
-    {
-      id: 15,
       heroId: 84,
       name: "Night Shade",
       icon: "/images/heroes/84/skins/Hero844-icon.png",
@@ -433,17 +206,59 @@ export const dataHero = {
       },
     },
     {
+      id: 13,
+      heroId: 84,
+      name: "Cosmo Guard",
+      icon: "/images/heroes/84/skins/Hero845-icon.png",
+      portrait: "/images/heroes/84/skins/Hero845-portrait.png",
+      splashArt: "/images/heroes/84/skins/Hero845-splashart.jpg",
+      skinTagId: 2,
+      skinTag: {
+        id: 2,
+        name: "Special",
+        icon: "/images/skin-tag/Special_SkinTag.png",
+      },
+    },
+    {
+      id: 14,
+      heroId: 84,
+      name: "Serene Plume",
+      icon: "/images/heroes/84/skins/Hero846-icon.png",
+      portrait: "/images/heroes/84/skins/Hero846-portrait.png",
+      splashArt: "/images/heroes/84/skins/Hero846-splashart.jpg",
+      skinTagId: 32,
+      skinTag: {
+        id: 32,
+        name: "Collector",
+        icon: "/images/skin-tag/Collector_SkinTag.png",
+      },
+    },
+    {
+      id: 15,
+      heroId: 84,
+      name: "M-World Ling",
+      icon: "/images/heroes/84/skins/Hero847-icon.png",
+      portrait: "/images/heroes/84/skins/Hero847-portrait.png",
+      splashArt: "/images/heroes/84/skins/Hero847-splashart.jpg",
+      skinTagId: 13,
+      skinTag: {
+        id: 13,
+        name: "M-World",
+        icon: "/images/skin-tag/M-World_SkinTag.png",
+      },
+    },
+    {
       id: 16,
       heroId: 84,
-      name: "Street Punk",
-      icon: "/images/heroes/84/skins/Hero843-icon.png",
-      portrait: "/images/heroes/84/skins/Hero843-portrait.png",
-      splashArt: "/images/heroes/84/skins/Hero843-splashart.jpg",
-      skinTagId: 21,
+      name: "Lord Shen",
+      icon: "/images/heroes/84/skins/Hero848-icon.png",
+      portrait: "/images/heroes/84/skins/Hero848-portrait.png",
+      splashArt: "/images/heroes/84/skins/Hero848-splashart.jpg",
+      skinTagId: 54,
       skinTag: {
-        id: 21,
-        name: "Starlight",
-        icon: "/images/skin-tag/Starlight_SkinTag.png",
+        id: 54,
+        name: "Kung Fu Panda",
+        icon: "/images/skin-tag/Kung_Fu_Panda_SkinTag.png",
       },
     },
   ],

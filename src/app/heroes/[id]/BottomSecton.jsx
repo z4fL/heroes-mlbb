@@ -2,7 +2,7 @@
 
 import ClockIcon from "@/components/svg/ClockIcon";
 import Image from "next/image";
-import { Fragment, useState } from "react";
+import { useState } from "react";
 
 const BottomSecton = ({ data }) => {
   const skillResource = {
@@ -14,19 +14,19 @@ const BottomSecton = ({ data }) => {
 
   const [activeAbility, setActiveAbility] = useState(abilities[2]);
 
-  const cooldownScaling = activeAbility.abilityScalings.find(
-    (item) => item.type === "Cooldown"
-  );
+  const cooldownScaling =
+    activeAbility.scalings &&
+    activeAbility.scalings.find((item) => item.type === "Cooldown");
 
-  const costScaling = activeAbility.abilityScalings.find((item) =>
-    item.type.includes("Cost")
-  );
+  const costScaling =
+    activeAbility.scalings &&
+    activeAbility.scalings.find((item) => item.type.includes("Cost"));
 
   const damageType = activeAbility.skillTerms.find((item) =>
     ["Magic Damage", "Physical Damage", "True Damage"].includes(item.name)
   );
 
-  const scallingsValue = activeAbility.abilityScalings;
+  const scallingsValue = activeAbility.scalings;
 
   const handleClickAbility = (ability) => {
     if (activeAbility !== ability) {
@@ -68,7 +68,7 @@ const BottomSecton = ({ data }) => {
                   alt={activeAbility.name}
                   width={96}
                   height={96}
-                  className="m-3 w-full max-w-24 h-full max-h-24 rounded-full shadow-[0px_0px_10px_rgb(0,0,0)]"
+                  className="m-3 max-w-24 h-full max-h-24 rounded-full shadow-[0px_0px_10px_rgb(0,0,0)]"
                 />
               )}
               <div className="flex flex-col grow m-2">
@@ -80,7 +80,7 @@ const BottomSecton = ({ data }) => {
                     <div
                       key={tag.id}
                       style={{ backgroundColor: tag.color }}
-                      className="font-dinnext text-xs px-2.5 text-soft-white"
+                      className="font-dinnext text-xs px-2.5 pb-1 text-soft-white"
                     >
                       {tag.name}
                     </div>
@@ -96,21 +96,19 @@ const BottomSecton = ({ data }) => {
 
             {activeAbility.type !== "Passive" && (
               <div className="flex flex-col w-full bg-gray-950 px-7 py-3">
-                {activeAbility.abilityScalings.length && (
-                  <div className="flex justify-between flex-wrap pb-1 text-color-base">
-                    {cooldownScaling && (
-                      <CooldownDisplay
-                        levelValues={cooldownScaling.levelValues}
-                      />
-                    )}
-                    {costScaling && (
-                      <AbilityCostDisplay
-                        color={skillResource.color}
-                        levelValues={costScaling.levelValues}
-                      />
-                    )}
-                  </div>
-                )}
+                <div className="flex justify-between flex-wrap pb-1 text-color-base">
+                  {cooldownScaling && (
+                    <CooldownDisplay
+                      levelValues={cooldownScaling.levelValues}
+                    />
+                  )}
+                  {costScaling && (
+                    <AbilityCostDisplay
+                      color={skillResource.color}
+                      levelValues={costScaling.levelValues}
+                    />
+                  )}
+                </div>
 
                 <div className="w-full flex">
                   <div className="w-1/2 flex flex-col items-center">

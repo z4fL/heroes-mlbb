@@ -120,6 +120,10 @@ module.exports = {
           skillTerms: {
             connectOrCreate: [
               {
+                where: { name: "Physical Attack" },
+                create: { name: "Physical Attack", color: "#fba51f" },
+              },
+              {
                 where: { name: "Physical Damage" },
                 create: { name: "Physical Damage", color: "#FB1F1F" },
               },
@@ -187,12 +191,16 @@ module.exports = {
           skillTerms: {
             connectOrCreate: [
               {
-                where: { name: "Physical Damage" },
-                create: { name: "Physical Damage", color: "#FB1F1F" },
-              },
-              {
                 where: { name: "Incivible" },
                 create: { name: "Incivible", color: "#EAC56B" },
+              },
+              {
+                where: { name: "Physical Attack" },
+                create: { name: "Physical Attack", color: "#fba51f" },
+              },
+              {
+                where: { name: "Physical Damage" },
+                create: { name: "Physical Damage", color: "#FB1F1F" },
               },
               {
                 where: { name: "Airborne" },

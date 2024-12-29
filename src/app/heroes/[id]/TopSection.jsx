@@ -150,7 +150,7 @@ const TopSection = ({ data }) => {
                 alt={skin.name}
                 fill={true}
                 quality={70}
-                className="object-cover object-top"
+                className="object-cover object-top pointer-events-none"
                 draggable={false}
               />
             </div>
@@ -193,7 +193,7 @@ const TopSection = ({ data }) => {
                   height={390}
                   alt={skin.name}
                   quality={50}
-                  className={`select-none w-[120px] h-full object-cover transition-transform transform ease-in-out duration-200 ${
+                  className={`pointer-events-none w-[120px] h-full object-cover transition-transform transform ease-in-out duration-200 ${
                     index === activeSlide ? "scale-100" : "scale-90"
                   } `}
                 />
@@ -234,7 +234,7 @@ const TopSection = ({ data }) => {
         <div className="flex justify-between items-center pb-3">
           <div className="flex grow">
             <div className="relative flex flex-col font-tungsten uppercase">
-              <h3 className="text-midnight text-5xl z-20 -mb-5">{data.name}</h3>
+              <h3 className="text-midnight text-5xl z-20 -mb-4">{data.name}</h3>
               <div className="flex items-center z-10">
                 <h2 className="text-highlight text-4xl line-clamp-2">
                   {skins.at(currentSkin).name}
