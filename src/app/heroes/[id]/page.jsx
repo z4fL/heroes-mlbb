@@ -1,9 +1,10 @@
+import { getData } from "@/lib/api-lib";
 import BottomSecton from "./BottomSecton";
-import { dataHero } from "./data";
 import TopSection from "./TopSection";
 
 const HeroId = async ({ params }) => {
   const id = (await params).id;
+  const dataHero = await getData(`${process.env.NEXT_PUBLIC_API_BASE_URL}/hero/${id}`);
 
   return (
     <main className="bg-midnight min-h-screen flex flex-col items-center mt-12">

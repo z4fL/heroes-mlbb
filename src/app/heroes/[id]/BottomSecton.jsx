@@ -26,7 +26,7 @@ const BottomSecton = ({ data }) => {
     ["Magic Damage", "Physical Damage", "True Damage"].includes(item.name)
   );
 
-  const scallingsValue = activeAbility.scalings;
+  const scallingsValue = activeAbility.scalings || [];
 
   const handleClickAbility = (ability) => {
     if (activeAbility !== ability) {

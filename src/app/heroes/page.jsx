@@ -1,21 +1,29 @@
 "use client";
 
+import ChevronUpDownIcon from "@/components/svg/ChevronUpDownIcon";
+import { getHeroes, getRoles } from "@/lib/api-lib";
 import { AnimatePresence, motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
-import { dataHero } from "./data";
+import { useEffect, useState } from "react";
 
 const Heroes = () => {
-  const [heroes, setHeroes] = useState(dataHero);
-  const [filtered, setFiltered] = useState(dataHero);
+  const [heroes, setHeroes] = useState([]);
+  const [filtered, setFiltered] = useState([]);
+
+  useEffect(() => {
+    const fetchHeroes = async () => {
+      const data = await getHeroes();
+      setHeroes(data);
+      setFiltered(data);
+    };
+
+    fetchHeroes();
+  }, []);
 
   return (
     <main className="bg-midnight min-h-screen flex flex-col items-center mt-10">
       <div className="mx-auto max-w-screen-xl w-full px-4 py-6">
-        {/* <h1 className="text-5xl sm:text-7xl text-highlight text-center font-tungsten uppercase">
-          All Heroes
-        </h1> */}
         {heroes.length !== 0 ? (
           <div className="max-w-screen-lg mx-auto">
             <TabFilter
@@ -26,49 +34,14 @@ const Heroes = () => {
             <GridHeroes data={filtered} />
           </div>
         ) : (
-          <div>no data</div>
+          <div className="pt-20 flex justify-center items-center text-color-base text-4xl">
+            oops, there's no data 🤪
+          </div>
         )}
       </div>
     </main>
   );
 };
-
-const arrayRole = [
-  {
-    id: 0,
-    name: "All",
-  },
-  {
-    id: 1,
-    name: "Tank",
-    icon: "/images/roles/tank_icon.png",
-  },
-  {
-    id: 2,
-    name: "Fighter",
-    icon: "/images/roles/fighter_icon.png",
-  },
-  {
-    id: 3,
-    name: "Assassin",
-    icon: "/images/roles/assassin_icon.png",
-  },
-  {
-    id: 4,
-    name: "Mage",
-    icon: "/images/roles/mage_icon.png",
-  },
-  {
-    id: 5,
-    name: "Marksman",
-    icon: "/images/roles/marksman_icon.png",
-  },
-  {
-    id: 6,
-    name: "Support",
-    icon: "/images/roles/support_icon.png",
-  },
-];
 
 const difficulties = [
   { id: 0, name: "All", threshold: 0 },
@@ -80,7 +53,7 @@ const difficulties = [
 ];
 
 function TabFilter({ data, filtered, setFiltered }) {
-  const [roles, setRoles] = useState(arrayRole);
+  const [roles, setRoles] = useState([]);
   const [isAscending, setIsAscending] = useState(true);
   const [difficulty, setDifficulty] = useState({
     id: 0,
@@ -89,6 +62,15 @@ function TabFilter({ data, filtered, setFiltered }) {
   });
   const [active, setActive] = useState("All");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  useEffect(() => {
+    const fetchRoles = async () => {
+      const data = await getRoles();
+      setRoles(data);
+    };
+
+    fetchRoles();
+  }, []);
 
   const handleRoleChange = (roleName) => {
     if (active === roleName) {
@@ -150,31 +132,17 @@ function TabFilter({ data, filtered, setFiltered }) {
           className="relative w-full bg-color-base flex justify-between items-center cursor-default py-2 shadow-md text-sm"
           onClick={() => setIsDropdownOpen(!isDropdownOpen)}
         >
-          <span className="pl-2">{difficulty.name}</span>
-          <span className="pointer-events-none pr-2">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              className="h-5 w-5 text-charcoal"
-              aria-hidden="true"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M8.25 15 12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9"
-              />
-            </svg>
+          <span className="pl-2.5">{difficulty.name}</span>
+          <span className="pointer-events-none pr-1">
+            <ChevronUpDownIcon className="h-5 w-5 text-charcoal" />
           </span>
         </button>
         {isDropdownOpen && (
-          <ul className="absolute z-40 mt-1 w-full bg-color-base py-1 text-sm shadow-lg">
+          <ul className="absolute z-40 mt-1 w-full bg-color-base py-1 text-sm">
             {difficulties.map((diff) => (
               <li
                 key={diff.id}
-                className={`cursor-pointer py-2 px-4 ${
+                className={`cursor-pointer py-2 px-2.5 ${
                   diff.id === difficulty.id
                     ? "font-medium text-highlight"
                     : "font-normal text-charcoal"

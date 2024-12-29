@@ -14,17 +14,12 @@ const CONTAINER_WIDTH = 320;
 const PADDING = 12;
 
 const TopSection = ({ data }) => {
-  // const { skins } = data;
   const skins = [
     {
-      id: 0,
-      heroId: 84,
-      name: "Cyan Finch",
-      icon: "/images/heroes/84/Hero841-icon.png",
-      portrait: "/images/heroes/84/Hero841-portrait.png",
-      splashArt: "/images/heroes/84/Hero841-splashart.jpg",
-      skinTagId: null,
-      skinTag: null,
+      name: data.alias,
+      icon: data.icon,
+      portrait: data.portrait,
+      splashArt: data.splashArt,
     },
     ...data.skins,
   ];
@@ -234,13 +229,13 @@ const TopSection = ({ data }) => {
         <div className="flex justify-between items-center pb-3">
           <div className="flex grow">
             <div className="relative flex flex-col font-tungsten uppercase">
-              <h3 className="text-midnight text-5xl z-20 -mb-4">{data.name}</h3>
+              <h3 className="text-midnight text-6xl z-20 -mb-4">{data.name}</h3>
               <div className="flex items-center z-10">
-                <h2 className="text-highlight text-4xl line-clamp-2">
+                <h2 className="text-highlight text-3xl line-clamp-2">
                   {skins.at(currentSkin).name}
                 </h2>
                 {skins.at(currentSkin).skinTag && (
-                  <div className="flex items-center w-auto h-7 ml-3 mb-2">
+                  <div className="flex items-center w-auto h-7 ml-1 mb-2">
                     <Image
                       src={skins.at(currentSkin).skinTag.icon}
                       alt={skins.at(currentSkin).name}
@@ -269,7 +264,7 @@ const TopSection = ({ data }) => {
                       index === 1 ? "invert-[.30]" : "invert-[.50]"
                     }`}
                   />
-                  <span className="tooltip bg-midnight text-soft-white text-xs -mt-20 p-2">
+                  <span className="tooltip bg-midnight text-soft-white text-nowrap text-xs -mt-20 p-2">
                     {role.name}
                   </span>
                 </div>
@@ -290,7 +285,7 @@ const TopSection = ({ data }) => {
                       index === 1 ? "invert-[.30]" : "invert-[.50]"
                     }`}
                   />
-                  <span className="tooltip bg-midnight text-soft-white text-xs -mt-20 p-2">
+                  <span className="tooltip bg-midnight text-soft-white text-nowrap text-xs -mt-20 p-2">
                     {position.name}
                   </span>
                 </div>
@@ -300,7 +295,7 @@ const TopSection = ({ data }) => {
         </div>
         {isPanelOpen && (
           <div className="transition-all duration-500 overflow-hidden">
-            <div className="flex justify-start items-center py-3 border-t border-charcoal/40">
+            <div className="flex justify-start items-center pt-3 border-t border-charcoal/40">
               <p className="font-dinnext font-bold whitespace-nowrap inline">
                 Specialities :
               </p>

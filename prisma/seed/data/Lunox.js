@@ -36,7 +36,7 @@ module.exports = {
               },
               {
                 where: { name: "Magic Penetration" },
-                create: { name: "Magic Penetration", color: "#854bab" },
+                create: { name: "Magic Penetration", color: "#c773ff" },
               },
             ],
           },
@@ -64,7 +64,7 @@ module.exports = {
               },
               {
                 where: { name: "Magic Damage" },
-                create: { name: "Magic Damage", color: "#854bab" },
+                create: { name: "Magic Damage", color: "#c773ff" },
               },
               {
                 where: { name: "Power of Order" },
@@ -143,7 +143,7 @@ module.exports = {
               },
               {
                 where: { name: "Magic Damage" },
-                create: { name: "Magic Damage", color: "#854bab" },
+                create: { name: "Magic Damage", color: "#c773ff" },
               },
               {
                 where: { name: "Power of Chaos" },
@@ -227,7 +227,7 @@ module.exports = {
               },
               {
                 where: { name: "Magic Damage" },
-                create: { name: "Magic Damage", color: "#854bab" },
+                create: { name: "Magic Damage", color: "#c773ff" },
               },
             ],
           },
@@ -310,7 +310,7 @@ module.exports = {
         },
         {
           type: "Ultimate",
-          name: "Power of Chaos: Brilliance",
+          name: "Power of Order: Brilliance",
           icon: "/images/heroes/68/abilities/Hero68-skill4_brilliance.png",
           description:
             "Lunox extends the Light Barrier and becomes Incivible for {invicibleDuration}s, and gains {gainMovementSpeed} extra Movement Speed while dealing {baseDamage} (+{scallingAttack} Total Magic Power) Magic Damage every {intervalDamage}s to nearby enemies.",
@@ -333,7 +333,7 @@ module.exports = {
               },
               {
                 where: { name: "Magic Damage" },
-                create: { name: "Magic Damage", color: "#854bab" },
+                create: { name: "Magic Damage", color: "#c773ff" },
               },
             ],
           },
@@ -369,7 +369,7 @@ module.exports = {
         },
         {
           type: "Ultimate",
-          name: "Power of Order: Brilliance",
+          name: "Power of Chaos: Darkening",
           icon: "/images/heroes/68/abilities/Hero68-skill4_darkening.png",
           description:
             "Lunox blinks in designated direction, dealing {baseDamage} (+{scallingAttack} Total Magic Power) Magic Damage to nearby enemies, slowing them by {slowEnemies} for {slowDuration}s.\nFor the next {durationSkill}s, Lunox enhances her Power of Chaos to greatly reduce the cooldown of Chaos Assault (unaffected by CD Reduction).",
@@ -388,7 +388,7 @@ module.exports = {
               },
               {
                 where: { name: "Magic Damage" },
-                create: { name: "Magic Damage", color: "#854bab" },
+                create: { name: "Magic Damage", color: "#c773ff" },
               },
               {
                 where: { name: "Power of Chaos" },

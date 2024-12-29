@@ -1,8 +1,8 @@
-export const getHero = async (resource) => {
-  const response = await fetch(resource);
+export const getHeroes = async () => {
+  const response = await fetch("/api/hero");
   const heroes = await response.json();
 
-  const data = heroes.data.map((hero) => ({
+  const data = heroes.map((hero) => ({
     ...hero,
     roles: hero.roles.map((role) => role.name),
   }));
@@ -16,8 +16,8 @@ export const getData = async (resource) => {
   return data;
 };
 
-export const getRoles = async (resource) => {
-  const roles = await getData(resource);
+export const getRoles = async () => {
+  const roles = await getData("/api/data/role");
 
   return [
     {
