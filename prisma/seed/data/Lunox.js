@@ -1,7 +1,5 @@
 module.exports = {
-  where: { id: 68 },
-  update: {},
-  create: {
+  data: {
     id: 68,
     name: "Lunox",
     alias: "Twilight Goddess",
@@ -61,6 +59,10 @@ module.exports = {
           skillTerms: {
             connectOrCreate: [
               {
+                where: { name: "Magic Power" },
+                create: { name: "Magic Power", color: "#60f8fe" },
+              },
+              {
                 where: { name: "Magic Damage" },
                 create: { name: "Magic Damage", color: "#854bab" },
               },
@@ -70,55 +72,53 @@ module.exports = {
               },
             ],
           },
-          abilityScalings: {
-            create: [
-              {
-                type: "Base Damage",
-                levelValues: {
-                  lvl1: 200,
-                  lvl2: 230,
-                  lvl3: 260,
-                  lvl4: 290,
-                  lvl5: 320,
-                  lvl6: 350,
-                },
+          scalings: [
+            {
+              type: "Base Damage",
+              levelValues: {
+                lvl1: 200,
+                lvl2: 230,
+                lvl3: 260,
+                lvl4: 290,
+                lvl5: 320,
+                lvl6: 350,
               },
-              {
-                type: "HP Regen",
-                levelValues: {
-                  lvl1: 75,
-                  lvl2: 80,
-                  lvl3: 85,
-                  lvl4: 90,
-                  lvl5: 95,
-                  lvl6: 100,
-                },
+            },
+            {
+              type: "HP Regen",
+              levelValues: {
+                lvl1: 75,
+                lvl2: 80,
+                lvl3: 85,
+                lvl4: 90,
+                lvl5: 95,
+                lvl6: 100,
               },
-              {
-                type: "Cooldown",
-                levelValues: {
-                  all: 2.0,
-                },
+            },
+            {
+              type: "Cooldown",
+              levelValues: {
+                all: 2.0,
               },
-              {
-                type: "Mana Cost",
-                levelValues: {
-                  lvl1: 30,
-                  lvl2: 35,
-                  lvl3: 40,
-                  lvl4: 45,
-                  lvl5: 50,
-                  lvl6: 55,
-                },
+            },
+            {
+              type: "Mana Cost",
+              levelValues: {
+                lvl1: 30,
+                lvl2: 35,
+                lvl3: 40,
+                lvl4: 45,
+                lvl5: 50,
+                lvl6: 55,
               },
-              {
-                type: "Spell Vamp Ratio",
-                levelValues: {
-                  all: "50%",
-                },
+            },
+            {
+              type: "Spell Vamp Ratio",
+              levelValues: {
+                all: "50%",
               },
-            ],
-          },
+            },
+          ],
           abilityTags: {
             connect: [{ id: 15 }, { id: 16 }],
           },
@@ -138,6 +138,10 @@ module.exports = {
           skillTerms: {
             connectOrCreate: [
               {
+                where: { name: "Magic Power" },
+                create: { name: "Magic Power", color: "#60f8fe" },
+              },
+              {
                 where: { name: "Magic Damage" },
                 create: { name: "Magic Damage", color: "#854bab" },
               },
@@ -147,60 +151,58 @@ module.exports = {
               },
             ],
           },
-          abilityScalings: {
-            create: [
-              {
-                type: "Base Damage",
-                levelValues: {
-                  lvl1: 250,
-                  lvl2: 270,
-                  lvl3: 290,
-                  lvl4: 310,
-                  lvl5: 330,
-                  lvl6: 350,
-                },
+          scalings: [
+            {
+              type: "Base Damage",
+              levelValues: {
+                lvl1: 250,
+                lvl2: 270,
+                lvl3: 290,
+                lvl4: 310,
+                lvl5: 330,
+                lvl6: 350,
               },
-              {
-                type: "Extra Percentage Damage",
-                levelValues: {
-                  lvl1: "2.5%",
-                  lvl2: "3.0%",
-                  lvl3: "3.5%",
-                  lvl4: "4.0%",
-                  lvl5: "4.5%",
-                  lvl6: "5.0%",
-                },
+            },
+            {
+              type: "Extra Percentage Damage",
+              levelValues: {
+                lvl1: "2.5%",
+                lvl2: "3.0%",
+                lvl3: "3.5%",
+                lvl4: "4.0%",
+                lvl5: "4.5%",
+                lvl6: "5.0%",
               },
-              {
-                type: "Damage to Creeps",
-                levelValues: {
-                  lvl1: "1.5%",
-                  lvl2: "1.8%",
-                  lvl3: "2.1%",
-                  lvl4: "2.4%",
-                  lvl5: "2.7%",
-                  lvl6: "3.0%",
-                },
+            },
+            {
+              type: "Damage to Creeps",
+              levelValues: {
+                lvl1: "1.5%",
+                lvl2: "1.8%",
+                lvl3: "2.1%",
+                lvl4: "2.4%",
+                lvl5: "2.7%",
+                lvl6: "3.0%",
               },
-              {
-                type: "Cooldown",
-                levelValues: {
-                  all: 2.0,
-                },
+            },
+            {
+              type: "Cooldown",
+              levelValues: {
+                all: 2.0,
               },
-              {
-                type: "Mana Cost",
-                levelValues: {
-                  lvl1: 30,
-                  lvl2: 35,
-                  lvl3: 40,
-                  lvl4: 45,
-                  lvl5: 50,
-                  lvl6: 55,
-                },
+            },
+            {
+              type: "Mana Cost",
+              levelValues: {
+                lvl1: 30,
+                lvl2: 35,
+                lvl3: 40,
+                lvl4: 45,
+                lvl5: 50,
+                lvl6: 55,
               },
-            ],
-          },
+            },
+          ],
           abilityTags: {
             connect: [{ id: 13 }],
           },
@@ -220,48 +222,50 @@ module.exports = {
           skillTerms: {
             connectOrCreate: [
               {
+                where: { name: "Magic Power" },
+                create: { name: "Magic Power", color: "#60f8fe" },
+              },
+              {
                 where: { name: "Magic Damage" },
                 create: { name: "Magic Damage", color: "#854bab" },
               },
             ],
           },
-          abilityScalings: {
-            create: [
-              {
-                type: "Base Damage",
-                levelValues: {
-                  lvl1: 300,
-                  lvl2: 340,
-                  lvl3: 380,
-                  lvl4: 420,
-                  lvl5: 460,
-                  lvl6: 500,
-                },
+          scalings: [
+            {
+              type: "Base Damage",
+              levelValues: {
+                lvl1: 300,
+                lvl2: 340,
+                lvl3: 380,
+                lvl4: 420,
+                lvl5: 460,
+                lvl6: 500,
               },
-              {
-                type: "Cooldown",
-                levelValues: {
-                  lvl1: 10.0,
-                  lvl2: 9.5,
-                  lvl3: 9.0,
-                  lvl4: 8.5,
-                  lvl5: 8.0,
-                  lvl6: 7.5,
-                },
+            },
+            {
+              type: "Cooldown",
+              levelValues: {
+                lvl1: 10.0,
+                lvl2: 9.5,
+                lvl3: 9.0,
+                lvl4: 8.5,
+                lvl5: 8.0,
+                lvl6: 7.5,
               },
-              {
-                type: "Mana Cost",
-                levelValues: {
-                  lvl1: 70,
-                  lvl2: 80,
-                  lvl3: 90,
-                  lvl4: 100,
-                  lvl5: 110,
-                  lvl6: 120,
-                },
+            },
+            {
+              type: "Mana Cost",
+              levelValues: {
+                lvl1: 70,
+                lvl2: 80,
+                lvl3: 90,
+                lvl4: 100,
+                lvl5: 110,
+                lvl6: 120,
               },
-            ],
-          },
+            },
+          ],
           abilityTags: {
             connect: [{ id: 15 }, { id: 23 }],
           },
@@ -324,39 +328,41 @@ module.exports = {
                 create: { name: "Incivible", color: "#EAC56B" },
               },
               {
+                where: { name: "Magic Power" },
+                create: { name: "Magic Power", color: "#60f8fe" },
+              },
+              {
                 where: { name: "Magic Damage" },
                 create: { name: "Magic Damage", color: "#854bab" },
               },
             ],
           },
-          abilityScalings: {
-            create: [
-              {
-                type: "Base Damage",
-                levelValues: {
-                  lvl1: 250,
-                  lvl2: 350,
-                  lvl3: 450,
-                },
+          scalings: [
+            {
+              type: "Base Damage",
+              levelValues: {
+                lvl1: 250,
+                lvl2: 350,
+                lvl3: 450,
               },
-              {
-                type: "Cooldown",
-                levelValues: {
-                  lvl1: 30.0,
-                  lvl2: 26.0,
-                  lvl3: 22.0,
-                },
+            },
+            {
+              type: "Cooldown",
+              levelValues: {
+                lvl1: 30.0,
+                lvl2: 26.0,
+                lvl3: 22.0,
               },
-              {
-                type: "Mana Cost",
-                levelValues: {
-                  lvl1: 120,
-                  lvl2: 160,
-                  lvl3: 200,
-                },
+            },
+            {
+              type: "Mana Cost",
+              levelValues: {
+                lvl1: 120,
+                lvl2: 160,
+                lvl3: 200,
               },
-            ],
-          },
+            },
+          ],
           abilityTags: {
             connect: [{ id: 18 }, { id: 15 }],
           },
@@ -377,6 +383,10 @@ module.exports = {
           skillTerms: {
             connectOrCreate: [
               {
+                where: { name: "Magic Power" },
+                create: { name: "Magic Power", color: "#60f8fe" },
+              },
+              {
                 where: { name: "Magic Damage" },
                 create: { name: "Magic Damage", color: "#854bab" },
               },
@@ -390,34 +400,32 @@ module.exports = {
               },
             ],
           },
-          abilityScalings: {
-            create: [
-              {
-                type: "Base Damage",
-                levelValues: {
-                  lvl1: 250,
-                  lvl2: 350,
-                  lvl3: 450,
-                },
+          scalings: [
+            {
+              type: "Base Damage",
+              levelValues: {
+                lvl1: 250,
+                lvl2: 350,
+                lvl3: 450,
               },
-              {
-                type: "Cooldown",
-                levelValues: {
-                  lvl1: 30.0,
-                  lvl2: 26.0,
-                  lvl3: 22.0,
-                },
+            },
+            {
+              type: "Cooldown",
+              levelValues: {
+                lvl1: 30.0,
+                lvl2: 26.0,
+                lvl3: 22.0,
               },
-              {
-                type: "Mana Cost",
-                levelValues: {
-                  lvl1: 120,
-                  lvl2: 160,
-                  lvl3: 200,
-                },
+            },
+            {
+              type: "Mana Cost",
+              levelValues: {
+                lvl1: 120,
+                lvl2: 160,
+                lvl3: 200,
               },
-            ],
-          },
+            },
+          ],
           abilityTags: {
             connect: [{ id: 23 }, { id: 15 }],
           },
@@ -439,103 +447,5 @@ module.exports = {
     difficulty: 9,
     abilityResource: "Mana",
     abilityResourceColor: "#3182f4",
-    skins: {
-      create: [
-        {
-          name: "Bloody Mary",
-          icon: "/images/heroes/68/skins/Hero682-icon.png",
-          portrait: "/images/heroes/68/skins/Hero682-portrait.png",
-          splashArt: "/images/heroes/68/skins/Hero682-splashart.jpg",
-        },
-        {
-          name: "Cosmic Harmony",
-          icon: "/images/heroes/68/skins/Hero683-icon.png",
-          portrait: "/images/heroes/68/skins/Hero683-portrait.png",
-          splashArt: "/images/heroes/68/skins/Hero683-splashart.jpg",
-          skinTag: {
-            connect: {
-              name: "Elite",
-            },
-          },
-        },
-        {
-          name: "Ash Blossom",
-          icon: "/images/heroes/68/skins/Hero684-icon.png",
-          portrait: "/images/heroes/68/skins/Hero684-portrait.png",
-          splashArt: "/images/heroes/68/skins/Hero684-splashart.jpg",
-          skinTag: {
-            connect: {
-              name: "Starlight",
-            },
-          },
-        },
-        {
-          name: "Libra",
-          icon: "/images/heroes/68/skins/Hero685-icon.png",
-          portrait: "/images/heroes/68/skins/Hero685-portrait.png",
-          splashArt: "/images/heroes/68/skins/Hero685-splashart.jpg",
-          skinTag: {
-            connect: {
-              name: "Zodiac",
-            },
-          },
-        },
-        {
-          name: "Butterfly Seraphim",
-          icon: "/images/heroes/68/skins/Hero686-icon.png",
-          portrait: "/images/heroes/68/skins/Hero686-portrait.png",
-          splashArt: "/images/heroes/68/skins/Hero686-splashart.jpg",
-          skinTag: {
-            connect: {
-              name: "Luckybox",
-            },
-          },
-        },
-        {
-          name: "Eyes of Eternity",
-          icon: "/images/heroes/68/skins/Hero687-icon.png",
-          portrait: "/images/heroes/68/skins/Hero687-portrait.png",
-          splashArt: "/images/heroes/68/skins/Hero687-splashart.jpg",
-          skinTag: {
-            connect: {
-              name: "Epic",
-            },
-          },
-        },
-        {
-          name: "Revelation",
-          icon: "/images/heroes/68/skins/Hero688-icon.png",
-          portrait: "/images/heroes/68/skins/Hero688-portrait.png",
-          splashArt: "/images/heroes/68/skins/Hero688-splashart.jpg",
-          skinTag: {
-            connect: {
-              name: "Epic",
-            },
-          },
-        },
-        {
-          name: "Divine Goddess",
-          icon: "/images/heroes/68/skins/Hero689-icon.png",
-          portrait: "/images/heroes/68/skins/Hero689-portrait.png",
-          splashArt: "/images/heroes/68/skins/Hero689-splashart.jpg",
-          skinTag: {
-            connect: {
-              name: "Legend",
-            },
-          },
-        },
-        {
-          name: "Nature's Harmony",
-          icon: "/images/heroes/68/skins/Hero6810-icon.png",
-          portrait: "/images/heroes/68/skins/Hero6810-portrait.png",
-          splashArt: "/images/heroes/68/skins/Hero6810-splashart.jpg",
-          skinTag: {
-            connect: {
-              name: "Elite",
-            },
-          },
-        },
-      ],
-    },
   },
-}
+};

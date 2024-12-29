@@ -1,7 +1,5 @@
 module.exports = {
-  where: { id: 84 },
-  update: {},
-  create: {
+  data: {
     id: 84,
     name: "Ling",
     alias: "Cyan Finch",
@@ -78,33 +76,31 @@ module.exports = {
               },
             ],
           },
-          abilityScalings: {
-            create: [
-              {
-                type: "Critical Chance",
-                levelValues: {
-                  lvl1: "2.5%",
-                  lvl2: "4.5%",
-                  lvl3: "6.5%",
-                  lvl4: "8.5%",
-                  lvl5: "10.5%",
-                  lvl6: "12.5%",
-                },
+          scalings: [
+            {
+              type: "Critical Chance",
+              levelValues: {
+                lvl1: "2.5%",
+                lvl2: "4.5%",
+                lvl3: "6.5%",
+                lvl4: "8.5%",
+                lvl5: "10.5%",
+                lvl6: "12.5%",
               },
-              {
-                type: "Cooldown",
-                levelValues: {
-                  all: 20.0,
-                },
+            },
+            {
+              type: "Cooldown",
+              levelValues: {
+                all: 20.0,
               },
-              {
-                type: "Energy Cost",
-                levelValues: {
-                  all: 30,
-                },
+            },
+            {
+              type: "Energy Cost",
+              levelValues: {
+                all: 30,
               },
-            ],
-          },
+            },
+          ],
           abilityTags: {
             connect: [{ id: 10 }, { id: 1 }],
           },
@@ -137,39 +133,37 @@ module.exports = {
               },
             ],
           },
-          abilityScalings: {
-            create: [
-              {
-                type: "Base Damage",
-                levelValues: {
-                  lvl1: 300,
-                  lvl2: 320,
-                  lvl3: 340,
-                  lvl4: 360,
-                  lvl5: 380,
-                  lvl6: 400,
-                },
+          scalings: [
+            {
+              type: "Base Damage",
+              levelValues: {
+                lvl1: 300,
+                lvl2: 320,
+                lvl3: 340,
+                lvl4: 360,
+                lvl5: 380,
+                lvl6: 400,
               },
-              {
-                type: "Cooldown",
-                levelValues: {
-                  all: 2.5,
-                },
+            },
+            {
+              type: "Cooldown",
+              levelValues: {
+                all: 2.5,
               },
-              {
-                type: "Energy Cost",
-                levelValues: {
-                  all: 35,
-                },
+            },
+            {
+              type: "Energy Cost",
+              levelValues: {
+                all: 35,
               },
-              {
-                type: "Attack Effects",
-                levelValues: {
-                  all: "100%",
-                },
+            },
+            {
+              type: "Attack Effects",
+              levelValues: {
+                all: "100%",
               },
-            ],
-          },
+            },
+          ],
           abilityTags: {
             connect: [{ id: 13 }, { id: 10 }],
           },
@@ -222,26 +216,24 @@ module.exports = {
               },
             ],
           },
-          abilityScalings: {
-            create: [
-              {
-                type: "Base Damage",
-                levelValues: {
-                  lvl1: 250,
-                  lvl2: 350,
-                  lvl3: 450,
-                },
+          scalings: [
+            {
+              type: "Base Damage",
+              levelValues: {
+                lvl1: 250,
+                lvl2: 350,
+                lvl3: 450,
               },
-              {
-                type: "Cooldown",
-                levelValues: {
-                  lvl1: 52.0,
-                  lvl2: 49.0,
-                  lvl3: 46.0,
-                },
+            },
+            {
+              type: "Cooldown",
+              levelValues: {
+                lvl1: 52.0,
+                lvl2: 49.0,
+                lvl3: 46.0,
               },
-            ],
-          },
+            },
+          ],
           abilityTags: {
             connect: [{ id: 14 }, { id: 22 }],
           },
@@ -264,81 +256,5 @@ module.exports = {
     abilityResource: "Energy",
     abilityResourceColor: "#dddcdc",
     abilityResourceName: "Lightness Points",
-    skins: {
-      create: [
-        {
-          name: "Fiery Dance",
-          icon: "/images/heroes/84/skins/Hero842-icon.png",
-          portrait: "/images/heroes/84/skins/Hero842-portrait.png",
-          splashArt: "/images/heroes/84/skins/Hero842-splashart.jpg",
-        },
-        {
-          name: "Street Punk",
-          icon: "/images/heroes/84/skins/Hero843-icon.png",
-          portrait: "/images/heroes/84/skins/Hero843-portrait.png",
-          splashArt: "/images/heroes/84/skins/Hero843-splashart.jpg",
-          skinTag: {
-            connect: {
-              name: "Starlight",
-            },
-          },
-        },
-        {
-          name: "Night Shade",
-          icon: "/images/heroes/84/skins/Hero844-icon.png",
-          portrait: "/images/heroes/84/skins/Hero844-portrait.png",
-          splashArt: "/images/heroes/84/skins/Hero844-splashart.jpg",
-          skinTag: {
-            connect: {
-              name: "Dragon Tamer",
-            },
-          },
-        },
-        {
-          name: "Cosmo Guard",
-          icon: "/images/heroes/84/skins/Hero845-icon.png",
-          portrait: "/images/heroes/84/skins/Hero845-portrait.png",
-          splashArt: "/images/heroes/84/skins/Hero845-splashart.jpg",
-          skinTag: {
-            connect: {
-              name: "Special",
-            },
-          },
-        },
-        {
-          name: "Serene Plume",
-          icon: "/images/heroes/84/skins/Hero846-icon.png",
-          portrait: "/images/heroes/84/skins/Hero846-portrait.png",
-          splashArt: "/images/heroes/84/skins/Hero846-splashart.jpg",
-          skinTag: {
-            connect: {
-              name: "Collector",
-            },
-          },
-        },
-        {
-          name: "M-World Ling",
-          icon: "/images/heroes/84/skins/Hero847-icon.png",
-          portrait: "/images/heroes/84/skins/Hero847-portrait.png",
-          splashArt: "/images/heroes/84/skins/Hero847-splashart.jpg",
-          skinTag: {
-            connect: {
-              name: "M-World",
-            },
-          },
-        },
-        {
-          name: "Lord Shen",
-          icon: "/images/heroes/84/skins/Hero848-icon.png",
-          portrait: "/images/heroes/84/skins/Hero848-portrait.png",
-          splashArt: "/images/heroes/84/skins/Hero848-splashart.jpg",
-          skinTag: {
-            connect: {
-              name: "Kung Fu Panda",
-            },
-          },
-        },
-      ],
-    },
   },
 };

@@ -15,7 +15,6 @@ export async function GET(request, { params }) {
       specialities: true,
       abilities: {
         include: {
-          abilityScalings: true,
           skillTerms: true,
           abilityTags: true,
         },

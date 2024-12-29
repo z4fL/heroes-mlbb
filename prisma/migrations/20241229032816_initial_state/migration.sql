@@ -26,18 +26,9 @@ CREATE TABLE "Ability" (
     "icon" VARCHAR(255) NOT NULL,
     "description" TEXT NOT NULL,
     "descValues" JSONB,
+    "scalings" JSONB,
 
     CONSTRAINT "Ability_pkey" PRIMARY KEY ("id")
-);
-
--- CreateTable
-CREATE TABLE "AbilityScaling" (
-    "id" SERIAL NOT NULL,
-    "abilityId" INTEGER NOT NULL,
-    "type" VARCHAR(50) NOT NULL,
-    "levelValues" JSONB NOT NULL,
-
-    CONSTRAINT "AbilityScaling_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
@@ -169,9 +160,6 @@ CREATE INDEX "_AbilityToAbilityTag_B_index" ON "_AbilityToAbilityTag"("B");
 
 -- AddForeignKey
 ALTER TABLE "Ability" ADD CONSTRAINT "Ability_heroId_fkey" FOREIGN KEY ("heroId") REFERENCES "Hero"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
-
--- AddForeignKey
-ALTER TABLE "AbilityScaling" ADD CONSTRAINT "AbilityScaling_abilityId_fkey" FOREIGN KEY ("abilityId") REFERENCES "Ability"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "Skin" ADD CONSTRAINT "Skin_heroId_fkey" FOREIGN KEY ("heroId") REFERENCES "Hero"("id") ON DELETE RESTRICT ON UPDATE CASCADE;

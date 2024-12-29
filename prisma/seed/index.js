@@ -1,6 +1,7 @@
 const { PrismaClient } = require("@prisma/client");
 const Lunox = require("./data/Lunox");
 const Ling = require("./data/Ling");
+const skins = require("./skins");
 
 const prisma = new PrismaClient();
 
@@ -457,17 +458,21 @@ async function main() {
     ],
   });
 
-  await prisma.hero.upsert(Lunox);
+  await prisma.hero.create(Lunox);
+  await prisma.hero.create(Ling);
 
-  await prisma.hero.upsert(Ling);
+  await prisma.skin.createMany({
+    data: skins,
+  });
 }
 
 main()
-  .then(async () => {
-    await prisma.$disconnect();
-  })
   .catch(async (e) => {
-    console.log(e);
+    console.error(`There was an error while seeding: ${e}`);
     await prisma.$disconnect();
     process.exit(1);
+  })
+  .finally(async () => {
+    console.log("Successfully seeded database. Closing connection.");
+    await prisma.$disconnect();
   });
