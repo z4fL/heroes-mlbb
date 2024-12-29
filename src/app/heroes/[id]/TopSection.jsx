@@ -138,7 +138,9 @@ const TopSection = ({ data }) => {
           {skins.map((skin, index) => (
             <div
               key={index}
-              className={`relative w-full h-[720px] ${index !== currentSkin ? "hidden" : ""}`}
+              className={`relative w-full h-[720px] ${
+                index !== currentSkin ? "hidden" : ""
+              }`}
             >
               <Image
                 src={skin.splashArt}
@@ -182,16 +184,29 @@ const TopSection = ({ data }) => {
                 layout
                 className="relative shrink-0 px-1.5"
               >
-                <Image
-                  src={skin.portrait}
-                  width={240}
-                  height={390}
-                  alt={skin.name}
-                  quality={50}
-                  className={`pointer-events-none w-[120px] h-full object-cover transition-transform transform ease-in-out duration-200 ${
+                <div
+                  className={`transition-transform transform ease-in-out duration-200 ${
                     index === activeSlide ? "scale-100" : "scale-90"
-                  } `}
-                />
+                  }`}
+                >
+                  {skin.skinTag && (
+                    <Image
+                      src={skin.skinTag.icon}
+                      alt={skin.skinTag.name}
+                      width={87}
+                      height={36}
+                      className="absolute top-0 right-0 z-20 w-auto h-full max-h-6"
+                    />
+                  )}
+                  <Image
+                    src={skin.portrait}
+                    width={240}
+                    height={390}
+                    alt={skin.name}
+                    quality={50}
+                    className="z-10 pointer-events-none w-[120px] h-full object-cover"
+                  />
+                </div>
               </motion.li>
             ))}
           </motion.ul>
@@ -231,20 +246,9 @@ const TopSection = ({ data }) => {
             <div className="relative flex flex-col font-tungsten uppercase">
               <h3 className="text-midnight text-6xl z-20 -mb-4">{data.name}</h3>
               <div className="flex items-center z-10">
-                <h2 className="text-highlight text-3xl line-clamp-2">
+                <h2 className="text-highlight text-4xl line-clamp-2">
                   {skins.at(currentSkin).name}
                 </h2>
-                {skins.at(currentSkin).skinTag && (
-                  <div className="flex items-center w-auto h-7 ml-1 mb-2">
-                    <Image
-                      src={skins.at(currentSkin).skinTag.icon}
-                      alt={skins.at(currentSkin).name}
-                      width={87}
-                      height={36}
-                      className="w-full h-full max-h-8"
-                    />
-                  </div>
-                )}
               </div>
             </div>
           </div>
@@ -260,7 +264,7 @@ const TopSection = ({ data }) => {
                     alt={role.name}
                     width={320}
                     height={320}
-                    className={`max-w-10 max-h-10 ${
+                    className={`max-w-9 max-h-9 ${
                       index === 1 ? "invert-[.30]" : "invert-[.50]"
                     }`}
                   />
@@ -281,7 +285,7 @@ const TopSection = ({ data }) => {
                     alt={position.name}
                     width={320}
                     height={320}
-                    className={`max-w-10 max-h-10 ${
+                    className={`max-w-9 max-h-9 ${
                       index === 1 ? "invert-[.30]" : "invert-[.50]"
                     }`}
                   />

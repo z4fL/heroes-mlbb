@@ -1,6 +1,7 @@
 "use client";
 
 import ChevronUpDownIcon from "@/components/svg/ChevronUpDownIcon";
+import LoadingIcon from "@/components/svg/LoadingIcon";
 import { getHeroes, getRoles } from "@/lib/api-lib";
 import { AnimatePresence, motion } from "motion/react";
 import Image from "next/image";
@@ -10,16 +11,32 @@ import { useEffect, useState } from "react";
 const Heroes = () => {
   const [heroes, setHeroes] = useState([]);
   const [filtered, setFiltered] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const fetchHeroes = async () => {
+      setIsLoading(true);
       const data = await getHeroes();
       setHeroes(data);
       setFiltered(data);
+      setIsLoading(false);
     };
 
     fetchHeroes();
   }, []);
+
+  if (isLoading) {
+    return (
+      <main className="bg-midnight min-h-screen flex flex-col justify-center items-center">
+        <div className="mx-auto max-w-screen-xl w-full px-4 py-6">
+          <div className="flex items-center justify-center text-color-base text-4xl">
+            <LoadingIcon className="animate-spin -ml-1 mr-3 h-8 w-8 text-white" />
+            Loading
+          </div>
+        </div>
+      </main>
+    );
+  }
 
   return (
     <main className="bg-midnight min-h-screen flex flex-col items-center mt-10">

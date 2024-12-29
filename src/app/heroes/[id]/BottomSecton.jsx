@@ -94,65 +94,67 @@ const BottomSecton = ({ data }) => {
               </div>
             </div>
 
-            {activeAbility.type !== "Passive" && (
-              <div className="flex flex-col w-full bg-gray-950 px-7 py-3">
-                <div className="flex justify-between flex-wrap pb-1 text-color-base">
-                  {cooldownScaling && (
-                    <CooldownDisplay
-                      levelValues={cooldownScaling.levelValues}
-                    />
-                  )}
-                  {costScaling && (
-                    <AbilityCostDisplay
-                      color={skillResource.color}
-                      levelValues={costScaling.levelValues}
-                    />
-                  )}
-                </div>
-
-                <div className="w-full flex">
-                  <div className="w-1/2 flex flex-col items-center">
-                    <div className="w-full flex flex-col flex-wrap items-center">
-                      {damageType && (
-                        <div className="w-full flex font-bold text-color-base uppercase whitespace-nowrap ">
-                          <p>Damage Type :</p>
-                          <p
-                            className="ml-1"
-                            style={{ color: damageType.color }}
-                          >
-                            {damageType.name}
-                          </p>
-                        </div>
+            {activeAbility.type !== "Passive" &&
+              scallingsValue.length !==
+                0 &&(
+                  <div className="flex flex-col w-full bg-gray-950 px-7 py-3">
+                    <div className="flex justify-between flex-wrap pb-1 text-color-base">
+                      {cooldownScaling && (
+                        <CooldownDisplay
+                          levelValues={cooldownScaling.levelValues}
+                        />
+                      )}
+                      {costScaling && (
+                        <AbilityCostDisplay
+                          color={skillResource.color}
+                          levelValues={costScaling.levelValues}
+                        />
                       )}
                     </div>
-                  </div>
-                </div>
 
-                <div className="w-full flex flex-col pt-4">
-                  {scallingsValue
-                    .filter(
-                      (value) =>
-                        !value.type.includes("Cost") &&
-                        !value.type.includes("Cooldown")
-                    )
-                    .map((value) => (
-                      <div
-                        key={value.type}
-                        className="h-6 flex font-bold text-sm text-color-base uppercase"
-                      >
-                        {value.type}
-                        <p className="ml-1 text-highlight font-semibold ">
-                          {value.levelValues.all
-                            ? value.levelValues.all
-                            : Object.entries(value.levelValues)
-                                .map(([_, value]) => value)
-                                .join(" / ")}
-                        </p>
+                    <div className="w-full flex">
+                      <div className="w-1/2 flex flex-col items-center">
+                        <div className="w-full flex flex-col flex-wrap items-center">
+                          {damageType && (
+                            <div className="w-full flex font-bold text-color-base uppercase whitespace-nowrap ">
+                              <p>Damage Type :</p>
+                              <p
+                                className="ml-1"
+                                style={{ color: damageType.color }}
+                              >
+                                {damageType.name}
+                              </p>
+                            </div>
+                          )}
+                        </div>
                       </div>
-                    ))}
-                </div>
-              </div>
-            )}
+                    </div>
+
+                    <div className="w-full flex flex-col pt-4">
+                      {scallingsValue
+                        .filter(
+                          (value) =>
+                            !value.type.includes("Cost") &&
+                            !value.type.includes("Cooldown")
+                        )
+                        .map((value) => (
+                          <div
+                            key={value.type}
+                            className="h-6 flex font-bold text-sm text-color-base uppercase"
+                          >
+                            {value.type}
+                            <p className="ml-1 text-highlight font-semibold ">
+                              {value.levelValues.all
+                                ? value.levelValues.all
+                                : Object.entries(value.levelValues)
+                                    .map(([_, value]) => value)
+                                    .join(" / ")}
+                            </p>
+                          </div>
+                        ))}
+                    </div>
+                  </div>
+                )}
           </div>
         </div>
       </div>

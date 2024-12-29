@@ -27,7 +27,7 @@ export default function Home() {
               Become an expert in mastering heroes
             </p>
             <div className="mb-9">
-              <Link href="#">
+              <Link href="/heroes">
                 <CTAButton text="View All" />
               </Link>
             </div>
