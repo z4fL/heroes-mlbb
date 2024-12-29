@@ -62,21 +62,22 @@ async function main() {
 
   await prisma.speciality.createMany({
     data: [
-      { name: "Regen" }, // 1
-      { name: "Crowd Control" }, // 2
-      { name: "Finisher" }, // 3
-      { name: "Charge" }, // 4
-      { name: "Push" }, // 5
-      { name: "Damage" }, // 6
-      { name: "Burst" }, // 7
-      { name: "Poke" }, // 8
-      { name: "Initiator" }, // 9
-      { name: "Magic Damage" }, // 10
-      { name: "Mixed Damage" }, // 11
-      { name: "Guard" }, // 12
-      { name: "Chase" }, // 13
-      { name: "Control" }, // 14
-      { name: "Support" }, // 15
+      { name: "Regen" },
+      { name: "Control" },
+      { name: "Crowd Control" },
+      { name: "Finisher" },
+      { name: "Charge" },
+      { name: "Push" },
+      { name: "Damage" },
+      { name: "Burst" },
+      { name: "Poke" },
+      { name: "Initiator" },
+      { name: "Magic Damage" },
+      { name: "Mixed Damage" },
+      { name: "Guard" },
+      { name: "Chase" },
+      { name: "Control" },
+      { name: "Support" },
     ],
   });
 

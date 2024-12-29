@@ -37,7 +37,9 @@ module.exports = {
             ],
           },
           abilityTags: {
-            connect: { id: 1 },
+            create: {
+              abilityTagId: 1,
+            },
           },
         },
         {
@@ -102,7 +104,10 @@ module.exports = {
             },
           ],
           abilityTags: {
-            connect: [{ id: 10 }, { id: 1 }],
+            create: [
+              { abilityTagId: 10, orderIndex: 0 },
+              { abilityTagId: 1, orderIndex: 1 },
+            ],
           },
         },
         {
@@ -169,7 +174,10 @@ module.exports = {
             },
           ],
           abilityTags: {
-            connect: [{ id: 13 }, { id: 10 }],
+            create: [
+              { abilityTagId: 13, orderIndex: 0 },
+              { abilityTagId: 10, orderIndex: 1 },
+            ],
           },
         },
         {
@@ -243,19 +251,27 @@ module.exports = {
             },
           ],
           abilityTags: {
-            connect: [{ id: 14 }, { id: 22 }],
+            create: [
+              { abilityTagId: 14, orderIndex: 0 },
+              { abilityTagId: 22, orderIndex: 1 },
+            ],
           },
         },
       ],
     },
     roles: {
-      connect: { id: 3 },
+      create: {
+        roleId: 3,
+      },
     },
     specialities: {
-      connect: [{ id: 13 }, { id: 7 }],
+      create: [
+        { specialityId: 14, orderIndex: 0 },
+        { specialityId: 8, orderIndex: 1 },
+      ],
     },
     positions: {
-      connect: { id: 2 },
+      create: { positionId: 2 },
     },
     durability: 5,
     offense: 6,

@@ -14,85 +14,85 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model Role {
+  id     Int             @id @default(autoincrement()) @db.SmallInt
+  name   String          @db.VarChar(10)
+  icon   String          @db.VarChar(255)
+  heroes HeroesOnRoles[]
+}
+
+model Speciality {
+  id     Int                    @id @default(autoincrement()) @db.SmallInt
+  name   String                 @db.VarChar(15)
+  heroes HeroesOnSpecialities[]
+}
+
+model Position {
+  id     Int                 @id @default(autoincrement()) @db.SmallInt
+  name   String              @db.VarChar(10)
+  icon   String              @db.VarChar(255)
+  heroes HeroesOnPositions[]
+}
+
 model Hero {
-  id                   Int          @id @default(autoincrement()) @db.SmallInt
-  name                 String       @db.VarChar(20)
-  alias                String       @db.VarChar(25)
-  icon                 String       @db.VarChar(255)
-  portrait             String       @db.VarChar(255)
-  splashArt            String       @db.VarChar(255)
+  id                   Int                    @id @default(autoincrement()) @db.SmallInt
+  name                 String                 @db.VarChar(20)
+  alias                String                 @db.VarChar(25)
+  icon                 String                 @db.VarChar(255)
+  portrait             String                 @db.VarChar(255)
+  splashArt            String                 @db.VarChar(255)
   abilities            Ability[]
-  roles                Role[]
-  specialities         Speciality[]
-  positions            Position[]
-  durability           Int          @db.SmallInt
-  offense              Int          @db.SmallInt
-  controlEffect        Int          @db.SmallInt
-  difficulty           Int          @db.SmallInt
-  abilityResource      String?      @db.VarChar(10)
-  abilityResourceColor String?      @db.VarChar(10)
-  abilityResourceName  String?      @db.VarChar(25)
+  roles                HeroesOnRoles[]
+  specialities         HeroesOnSpecialities[]
+  positions            HeroesOnPositions[]
+  durability           Int                    @db.SmallInt
+  offense              Int                    @db.SmallInt
+  controlEffect        Int                    @db.SmallInt
+  difficulty           Int                    @db.SmallInt
+  abilityResource      String?                @db.VarChar(10)
+  abilityResourceColor String?                @db.VarChar(10)
+  abilityResourceName  String?                @db.VarChar(25)
   skins                Skin[]
 }
 
+model AbilityTag {
+  id        Int                      @id @default(autoincrement()) @db.SmallInt
+  name      String                   @db.VarChar(20)
+  color     String                   @db.Char(7)
+  abilities AbilityTagsOnAbilities[]
+}
+
 model Ability {
-  id          Int          @id @default(autoincrement())
-  heroId      Int          @db.SmallInt
-  hero        Hero         @relation(fields: [heroId], references: [id])
-  type        String       @db.VarChar(10) // passive, skill 1, 2, 3/ult
-  name        String       @db.VarChar(50)
-  icon        String       @db.VarChar(255) // URL/icon path
-  description String       @db.Text
-  descValues  Json? // {baseDamage: {value: 0, color: ""},}
+  id          Int                      @id @default(autoincrement())
+  heroId      Int                      @db.SmallInt
+  hero        Hero                     @relation(fields: [heroId], references: [id])
+  type        String                   @db.VarChar(10)
+  name        String                   @db.VarChar(50)
+  icon        String                   @db.VarChar(255)
+  description String                   @db.Text
+  descValues  Json?
   scalings    Json?
-  skillTerms  SkillTerm[] // References skill terms details
-  abilityTags AbilityTag[] // References tag details
+  skillTerms  SkillTerm[]
+  abilityTags AbilityTagsOnAbilities[]
 }
 
 model SkillTerm {
   id        Int       @id @default(autoincrement())
-  name      String    @unique @db.VarChar(50) // e.g., "Basic Attack", "Slow", "Airborne"
-  color     String    @db.Char(7) // RGB color in hex format
+  name      String    @unique @db.VarChar(50)
+  color     String    @db.Char(7)
   abilities Ability[]
-}
-
-model AbilityTag {
-  id        Int       @id @default(autoincrement()) @db.SmallInt
-  name      String    @db.VarChar(50) // e.g., "buff", "damage"
-  color     String    @db.Char(7) // RGB color in hex format (e.g., "#FF5733")
-  abilities Ability[]
-}
-
-model Role {
-  id     Int    @id @default(autoincrement()) @db.SmallInt
-  name   String @db.VarChar(10)
-  icon   String @db.VarChar(255)
-  heroes Hero[]
-}
-
-model Position {
-  id     Int    @id @default(autoincrement()) @db.SmallInt
-  name   String @db.VarChar(10)
-  icon   String @db.VarChar(255)
-  heroes Hero[]
-}
-
-model Speciality {
-  id     Int    @id @default(autoincrement()) @db.SmallInt
-  name   String @db.VarChar(15)
-  heroes Hero[]
 }
 
 model Skin {
   id        Int      @id @default(autoincrement())
-  heroId    Int      @db.SmallInt
   hero      Hero     @relation(fields: [heroId], references: [id])
+  heroId    Int      @db.SmallInt
   name      String   @db.VarChar(25)
   icon      String   @db.VarChar(255)
   portrait  String   @db.VarChar(255)
   splashArt String   @db.VarChar(255)
-  skinTagId Int?
   skinTag   SkinTag? @relation(fields: [skinTagId], references: [id])
+  skinTagId Int?
 }
 
 model SkinTag {
@@ -100,4 +100,45 @@ model SkinTag {
   name  String @unique @db.VarChar(25)
   icon  String @db.VarChar(255)
   skins Skin[]
+}
+
+// Pivot Tables
+model HeroesOnRoles {
+  hero       Hero @relation(fields: [heroId], references: [id])
+  heroId     Int
+  role       Role @relation(fields: [roleId], references: [id])
+  roleId     Int
+  orderIndex Int? // Order for the relationship
+
+  @@id([heroId, roleId]) // Composite primary key
+}
+
+model HeroesOnSpecialities {
+  hero         Hero       @relation(fields: [heroId], references: [id])
+  heroId       Int
+  speciality   Speciality @relation(fields: [specialityId], references: [id])
+  specialityId Int
+  orderIndex   Int? // Order for the relationship
+
+  @@id([heroId, specialityId]) // Composite primary key
+}
+
+model HeroesOnPositions {
+  hero       Hero     @relation(fields: [heroId], references: [id])
+  heroId     Int
+  position   Position @relation(fields: [positionId], references: [id])
+  positionId Int
+  orderIndex Int? // Order for the relationship
+
+  @@id([heroId, positionId]) // Composite primary key
+}
+
+model AbilityTagsOnAbilities {
+  ability      Ability    @relation(fields: [abilityId], references: [id])
+  abilityId    Int
+  abilityTag   AbilityTag @relation(fields: [abilityTagId], references: [id])
+  abilityTagId Int
+  orderIndex   Int?
+
+  @@id([abilityId, abilityTagId])
 }
