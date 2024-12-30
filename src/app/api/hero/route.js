@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
+// const { PrismaClient } = require("@prisma/client");
+// const prisma = new PrismaClient();
 
 export async function GET(request) {
   try {
@@ -11,7 +13,9 @@ export async function GET(request) {
         difficulty: true,
         roles: {
           select: {
-            name: true
+            role: {
+              select: { name: true },
+            },
           },
         },
       },
@@ -19,7 +23,13 @@ export async function GET(request) {
         id: "desc",
       },
     });
-    return NextResponse.json(heroes, { status: 200 });
+
+    const formattedHeroes = heroes.map((hero) => ({
+      ...hero,
+      roles: hero.roles.map((r) => r.role.name),
+    }));
+
+    return NextResponse.json(formattedHeroes, { status: 200 });
   } catch (error) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }

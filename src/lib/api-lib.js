@@ -2,12 +2,7 @@ export const getHeroes = async () => {
   const response = await fetch("/api/hero");
   const heroes = await response.json();
 
-  const data = heroes.map((hero) => ({
-    ...hero,
-    roles: hero.roles.map((role) => role.name),
-  }));
-
-  return data;
+  return heroes;
 };
 
 export const getData = async (resource) => {

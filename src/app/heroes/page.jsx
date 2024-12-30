@@ -11,15 +11,15 @@ import { useEffect, useState } from "react";
 const Heroes = () => {
   const [heroes, setHeroes] = useState([]);
   const [filtered, setFiltered] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchHeroes = async () => {
       setIsLoading(true);
       const data = await getHeroes();
+      setIsLoading(false);
       setHeroes(data);
       setFiltered(data);
-      setIsLoading(false);
     };
 
     fetchHeroes();

@@ -31,8 +31,6 @@ const TopSection = ({ data }) => {
     { name: "difficulty", value: data.difficulty },
   ];
 
-  const specialities = data.specialities.map((speciality) => speciality.name);
-
   const [currentSkin, setCurrentSkin] = useState(0);
   const [activeSlide, setActiveSlide] = useState(START_INDEX);
 
@@ -158,7 +156,7 @@ const TopSection = ({ data }) => {
 
       {/* Start Carousel */}
       <div
-        className="absolute bottom-16 right-28 z-20 w-full max-w-xs"
+        className="absolute bottom-10 right-20 z-20 w-full max-w-xs"
         ref={containerRef}
       >
         <div className="relative h-52 flex items-center overflow-hidden">
@@ -195,6 +193,7 @@ const TopSection = ({ data }) => {
                       alt={skin.skinTag.name}
                       width={87}
                       height={36}
+                      quality={40}
                       className="absolute top-0 right-0 z-20 w-auto h-full max-h-6"
                     />
                   )}
@@ -203,7 +202,7 @@ const TopSection = ({ data }) => {
                     width={240}
                     height={390}
                     alt={skin.name}
-                    quality={50}
+                    quality={40}
                     className="z-10 pointer-events-none w-[120px] h-full object-cover"
                   />
                 </div>
@@ -229,7 +228,7 @@ const TopSection = ({ data }) => {
       {/* End Carousel */}
 
       {/* Start Disclosure */}
-      <div className="max-w-lg w-full absolute bottom-6 left-28 z-30 bg-soft-white pt-5 pb-7 px-6">
+      <div className="max-w-lg w-full absolute bottom-3 left-20 z-30 bg-soft-white pt-5 pb-7 px-6">
         <button
           className="absolute -top-10 left-0 flex bg-soft-white px-4 py-2 text-left text-sm font-medium text-info hover:bg-color-primary focus:outline-none"
           onClick={() => setIsPanelOpen(!isPanelOpen)}
@@ -256,7 +255,7 @@ const TopSection = ({ data }) => {
             <div className="flex items-center space-x-1 w-full pr-2.5">
               {data.roles.map((role, index) => (
                 <div
-                  key={role.id}
+                  key={role.name}
                   className="flex flex-col justify-center items-center has-tooltip"
                 >
                   <Image
@@ -277,7 +276,7 @@ const TopSection = ({ data }) => {
             <div className="flex items-center space-x-1 w-full pl-2.5">
               {data.positions.map((position, index) => (
                 <div
-                  key={position.id}
+                  key={position.name}
                   className="flex flex-col justify-center items-center has-tooltip"
                 >
                   <Image
@@ -304,7 +303,7 @@ const TopSection = ({ data }) => {
                 Specialities :
               </p>
               <span className="font-dinnext font-bold inline whitespace-nowrap">
-                {specialities.join(" / ")}
+                {data.specialities.join(" / ")}
               </span>
             </div>
             <div className="w-full flex flex-wrap items-center justify-between py-3">
