@@ -5,7 +5,7 @@ module.exports = {
     alias: "Scarlet Raven",
     icon: "/images/heroes/116/Hero1161-icon.png",
     portrait: "/images/heroes/116/Hero1161-portrait.png",
-    splashArt: "/images/heroes/116/Hero1161-splashart.jpg",
+    splashArt: "/images/heroes/116/Hero1161-splashart.png",
     abilities: {
       create: [
         {

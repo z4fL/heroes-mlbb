@@ -129,7 +129,7 @@ const TopSection = ({ data }) => {
   };
 
   return (
-    <div className="relative w-full max-w-screen-2xl h-[39rem] overflow-hidden">
+    <div className="relative w-full max-w-screen-2xl h-[39rem]">
       {/* Start Slider */}
       <div className="w-full">
         <div className="flex w-full h-full">
@@ -144,7 +144,7 @@ const TopSection = ({ data }) => {
                 src={skin.splashArt}
                 alt={skin.name}
                 fill={true}
-                quality={70}
+                quality={50}
                 className="object-cover object-top pointer-events-none"
                 draggable={false}
               />
@@ -156,7 +156,7 @@ const TopSection = ({ data }) => {
 
       {/* Start Carousel */}
       <div
-        className="absolute bottom-10 right-20 z-20 w-full max-w-xs"
+        className="absolute bottom-3 right-20 z-20 w-full max-w-xs"
         ref={containerRef}
       >
         <div className="relative h-52 flex items-center overflow-hidden">
@@ -193,7 +193,7 @@ const TopSection = ({ data }) => {
                       alt={skin.skinTag.name}
                       width={87}
                       height={36}
-                      quality={40}
+                      quality={10}
                       className="absolute top-0 right-0 z-20 w-auto h-full max-h-6"
                     />
                   )}
@@ -202,7 +202,7 @@ const TopSection = ({ data }) => {
                     width={240}
                     height={390}
                     alt={skin.name}
-                    quality={40}
+                    quality={20}
                     className="z-10 pointer-events-none w-[120px] h-full object-cover"
                   />
                 </div>
@@ -228,7 +228,7 @@ const TopSection = ({ data }) => {
       {/* End Carousel */}
 
       {/* Start Disclosure */}
-      <div className="max-w-lg w-full absolute bottom-3 left-20 z-30 bg-soft-white pt-5 pb-7 px-6">
+      <div className="max-w-lg w-full absolute -bottom-6 left-20 z-30 bg-soft-white pt-5 pb-7 px-6">
         <button
           className="absolute -top-10 left-0 flex bg-soft-white px-4 py-2 text-left text-sm font-medium text-info hover:bg-color-primary focus:outline-none"
           onClick={() => setIsPanelOpen(!isPanelOpen)}
