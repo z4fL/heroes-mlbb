@@ -4,7 +4,7 @@ import ClockIcon from "@/components/svg/ClockIcon";
 import Image from "next/image";
 import { useState } from "react";
 
-const BottomSecton = ({ data }) => {
+const BottomSection = ({ data }) => {
   const abilities = data.abilities;
   const [activeAbility, setActiveAbility] = useState(abilities[0]);
 
@@ -237,4 +237,4 @@ function AbilityCostDisplay({ color, levelValues }) {
   );
 }
 
-export default BottomSecton;
+export default BottomSection;

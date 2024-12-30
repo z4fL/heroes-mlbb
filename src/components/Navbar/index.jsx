@@ -4,7 +4,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import Logo from "./logo.png";
-import Link from "next/link";
+import { ProgressBarLink } from "@/app/progress-bar";
 
 const navigation = [
   { name: "Homepage", href: "/" },
@@ -72,7 +72,7 @@ const Navbar = () => {
           <div className="hidden sm:ml-6 sm:block">
             <div className="flex space-x-4">
               {navigation.map((item) => (
-                <Link
+                <ProgressBarLink
                   key={item.name}
                   href={item.href}
                   className={`${
@@ -83,7 +83,7 @@ const Navbar = () => {
                   } block p-3 text-base font-dinnext uppercase font-bold`}
                 >
                   {item.name}
-                </Link>
+                </ProgressBarLink>
               ))}
             </div>
           </div>
@@ -93,7 +93,7 @@ const Navbar = () => {
         <div className="sm:hidden">
           <div className="space-y-1 p-2 pb-3">
             {navigation.map((item) => (
-              <Link
+              <ProgressBarLink
                 key={item.name}
                 href={item.href}
                 className={`${
@@ -102,7 +102,7 @@ const Navbar = () => {
                 aria-current={pathName === item.href ? "page" : undefined}
               >
                 {item.name}
-              </Link>
+              </ProgressBarLink>
             ))}
           </div>
         </div>

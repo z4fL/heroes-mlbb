@@ -5,8 +5,8 @@ import LoadingIcon from "@/components/svg/LoadingIcon";
 import { getData, getRoles } from "@/lib/api-lib";
 import { AnimatePresence, motion } from "motion/react";
 import Image from "next/image";
-import Link from "next/link";
 import { useEffect, useState } from "react";
+import { ProgressBarLink } from "../progress-bar";
 
 const Heroes = () => {
   const [heroes, setHeroes] = useState([]);
@@ -194,7 +194,7 @@ function GridHeroes({ data }) {
               opacity: { duration: 0.3 }, // Durasi animasi opacity
             }}
           >
-            <Link
+            <ProgressBarLink
               href={`/heroes/${hero.id}`}
               className="block relative h-72 overflow-hidden group trasition ease-out duration-300 hover:transform hover:scale-110 hover:z-10"
             >
@@ -212,7 +212,7 @@ function GridHeroes({ data }) {
               <div className="absolute inset-x-0 -bottom-9 group-hover:bottom-0 z-20 w-full h-12 flex items-center transition-[opacity,bottom] ease-out duration-300 opacity-0 group-hover:opacity-100">
                 <p className="ml-3 text-2xl text-soft-white">{hero.name}</p>
               </div>
-            </Link>
+            </ProgressBarLink>
           </motion.div>
         ))}
       </AnimatePresence>
