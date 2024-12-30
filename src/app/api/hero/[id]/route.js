@@ -5,10 +5,11 @@ import prisma from "@/lib/prisma";
 
 export async function GET(request, { params }) {
   const id = (await params).id;
+  const heroId = parseInt(id);
 
   const hero = await prisma.hero.findUnique({
     where: {
-      id: parseInt(id),
+      id: heroId,
     },
     include: {
       roles: {
@@ -57,7 +58,32 @@ export async function GET(request, { params }) {
     },
   });
 
-  const formattedHero = {
+  if (!hero) {
+    return NextResponse.json({ error: "Hero not found" }, { status: 404 });
+  }
+
+  // Ambil hero sebelum dan sesudah
+  const heroBefore = await prisma.hero.findFirst({
+    where: { id: { lt: heroId } },
+    select: {
+      id: true,
+      name: true,
+      portrait: true,
+    },
+    orderBy: { id: "desc" },
+  });
+
+  const heroAfter = await prisma.hero.findFirst({
+    where: { id: { gt: heroId } },
+    select: {
+      id: true,
+      name: true,
+      portrait: true,
+    },
+    orderBy: { id: "asc" },
+  });
+
+  const data = {
     ...hero,
     roles: hero.roles.map((r) => ({
       name: r.role.name,
@@ -77,9 +103,14 @@ export async function GET(request, { params }) {
     })),
   };
 
-  if (!hero) {
-    return NextResponse.json("Hero not found!", { status: 404 });
-  } else {
-    return NextResponse.json(formattedHero, { status: 200 });
-  }
+  return NextResponse.json(
+    {
+      data,
+      surroundingHeroes: {
+        before: heroBefore,
+        after: heroAfter,
+      },
+    },
+    { status: 200 }
+  );
 }

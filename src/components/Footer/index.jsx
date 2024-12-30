@@ -41,15 +41,15 @@ const Footer = () => {
   return (
     <footer className="bg-midnight">
       <div className="container mx-auto py-6 px-4">
-        <hr className="my-6 border-color-base sm:mx-auto lg:my-8" />
-        <div className="sm:flex sm:items-center sm:justify-between">
-          <span className="flex text-sm text-color-base sm:text-center">
+        <hr className="mb-6 border-color-base mx-auto" />
+        <div className="flex items-center justify-between">
+          <span className="flex text-sm text-color-base">
             © 2024{" "}
             <div href="#" className="ml-2 hover:underline">
               Z4FL
             </div>
           </span>
-          <div className="flex mt-4 sm:justify-center sm:mt-0">
+          <div className="flex justify-center">
             {socialLinks.map((link, index) => (
               <Link
                 key={index}

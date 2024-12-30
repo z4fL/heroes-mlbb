@@ -2,7 +2,7 @@
 
 import ChevronUpDownIcon from "@/components/svg/ChevronUpDownIcon";
 import LoadingIcon from "@/components/svg/LoadingIcon";
-import { getHeroes, getRoles } from "@/lib/api-lib";
+import { getData, getRoles } from "@/lib/api-lib";
 import { AnimatePresence, motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
@@ -16,7 +16,9 @@ const Heroes = () => {
   useEffect(() => {
     const fetchHeroes = async () => {
       setIsLoading(true);
-      const data = await getHeroes();
+      const data = await getData(
+        `${process.env.NEXT_PUBLIC_API_BASE_URL}/hero`
+      );
       setIsLoading(false);
       setHeroes(data);
       setFiltered(data);
