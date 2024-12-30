@@ -2,8 +2,8 @@ import Image from "next/image";
 import ProjectNext23 from "../../public/images/projectnext23.jpeg";
 import KugisakiNobara from "../../public/images/kugisaki-nobara.png";
 import MWorldLing from "../../public/images/mworld_ling.png";
-import Link from "next/link";
 import CTAButton from "@/components/CTAButton";
+import { ProgressBarLink } from "./progress-bar";
 
 export default function Home() {
   return (
@@ -27,9 +27,9 @@ export default function Home() {
               Become an expert in mastering heroes
             </p>
             <div className="mb-9">
-              <Link href="/heroes">
+              <ProgressBarLink href="/heroes">
                 <CTAButton text="View All" />
-              </Link>
+              </ProgressBarLink>
             </div>
           </div>
         </div>
@@ -56,9 +56,9 @@ export default function Home() {
                 Or you can mix it yourself
               </p>
               <div className="mt-9">
-                <Link href="#">
+                <ProgressBarLink href="#">
                   <CTAButton text="View All" />
-                </Link>
+                </ProgressBarLink>
               </div>
             </div>
           </div>
@@ -87,9 +87,9 @@ export default function Home() {
                 Starting from the fastest mode to the relaxing one you can try
               </p>
               <div className="mt-9">
-                <Link href="#">
+                <ProgressBarLink href="#">
                   <CTAButton text="View All" />
-                </Link>
+                </ProgressBarLink>
               </div>
             </div>
           </div>
