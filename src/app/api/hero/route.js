@@ -20,7 +20,7 @@ export async function GET(request) {
         },
       },
       orderBy: {
-        id: "desc",
+        id: "asc",
       },
     });
 

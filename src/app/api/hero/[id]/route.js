@@ -63,7 +63,7 @@ export async function GET(request, { params }) {
   }
 
   // Ambil hero sebelum dan sesudah
-  const heroBefore = await prisma.hero.findFirst({
+  let heroBefore = await prisma.hero.findFirst({
     where: { id: { lt: heroId } },
     select: {
       id: true,
@@ -73,7 +73,18 @@ export async function GET(request, { params }) {
     orderBy: { id: "desc" },
   });
 
-  const heroAfter = await prisma.hero.findFirst({
+  if (!heroBefore) {
+    heroBefore = await prisma.hero.findFirst({
+      select: {
+        id: true,
+        name: true,
+        portrait: true,
+      },
+      orderBy: { id: "desc" },
+    });
+  }
+
+  let heroAfter = await prisma.hero.findFirst({
     where: { id: { gt: heroId } },
     select: {
       id: true,
@@ -82,6 +93,17 @@ export async function GET(request, { params }) {
     },
     orderBy: { id: "asc" },
   });
+
+  if (!heroAfter) {
+    heroAfter = await prisma.hero.findFirst({
+      select: {
+        id: true,
+        name: true,
+        portrait: true,
+      },
+      orderBy: { id: "asc" },
+    });
+  }
 
   const data = {
     ...hero,
@@ -106,9 +128,9 @@ export async function GET(request, { params }) {
   return NextResponse.json(
     {
       data,
-      surroundingHeroes: {
-        before: heroBefore,
-        after: heroAfter,
+      pagination: {
+        prev: heroBefore,
+        next: heroAfter,
       },
     },
     { status: 200 }

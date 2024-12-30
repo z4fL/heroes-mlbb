@@ -2,6 +2,7 @@ const { PrismaClient } = require("@prisma/client");
 const Lunox = require("./data/Lunox");
 const Ling = require("./data/Ling");
 const skins = require("./skins");
+const Julian = require("./data/Julian");
 
 const prisma = new PrismaClient();
 
@@ -63,7 +64,6 @@ async function main() {
   await prisma.speciality.createMany({
     data: [
       { name: "Regen" },
-      { name: "Control" },
       { name: "Crowd Control" },
       { name: "Finisher" },
       { name: "Charge" },
@@ -450,6 +450,10 @@ async function main() {
         icon: "/images/skin-tag/Attack_on_Titan_SkinTag.png",
         name: "Attack on Titan", // ? // 3000
       },
+      {
+        icon: "/images/skin-tag/HUNTER×HUNTER_SkinTag.png",
+        name: "HUNTER×HUNTER", // ? // 3000
+      },
 
       // Legend
       {
@@ -461,6 +465,7 @@ async function main() {
 
   await prisma.hero.create(Lunox);
   await prisma.hero.create(Ling);
+  await prisma.hero.create(Julian);
 
   await prisma.skin.createMany({
     data: skins,

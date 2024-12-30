@@ -458,8 +458,8 @@ module.exports = {
     },
     specialities: {
       create: [
-        { specialityId: 8, orderIndex: 0 },
-        { specialityId: 7, orderIndex: 1 },
+        { specialityId: 7, orderIndex: 0 },
+        { specialityId: 6, orderIndex: 1 },
       ],
     },
     positions: {

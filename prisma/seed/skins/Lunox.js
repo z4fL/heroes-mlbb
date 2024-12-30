@@ -60,7 +60,7 @@ module.exports = [
     icon: "/images/heroes/68/skins/Hero689-icon.png",
     portrait: "/images/heroes/68/skins/Hero689-portrait.png",
     splashArt: "/images/heroes/68/skins/Hero689-splashart.jpg",
-    skinTagId: 60,
+    skinTagId: 61,
   },
   {
     heroId: 68,
