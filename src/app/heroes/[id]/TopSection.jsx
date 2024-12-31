@@ -194,7 +194,7 @@ const TopSection = ({ data }) => {
                       width={87}
                       height={36}
                       quality={10}
-                      className="absolute top-0 right-0 z-20 w-auto h-full max-h-6"
+                      className="absolute top-0.5 right-0.5 z-20 w-auto h-full max-h-6"
                     />
                   )}
                   <Image
@@ -302,7 +302,7 @@ const TopSection = ({ data }) => {
               <p className="font-dinnext font-bold whitespace-nowrap inline">
                 Specialities :
               </p>
-              <span className="font-dinnext font-bold inline whitespace-nowrap">
+              <span className="ml-1 font-dinnext font-bold inline whitespace-nowrap">
                 {data.specialities.join(" / ")}
               </span>
             </div>

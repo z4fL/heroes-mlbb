@@ -10,7 +10,7 @@ const HeroId = async ({ params }) => {
   );
 
   return (
-    <main className="bg-midnight min-h-screen flex flex-col items-center mt-12">
+    <main className="relative bg-midnight min-h-screen flex flex-col items-center mt-12">
       <TopSection data={data} />
       <BottomSection data={data} />
       <BottomNavigation data={pagination} />

@@ -39,7 +39,7 @@ const socialLinks = [
 
 const Footer = () => {
   return (
-    <footer className="bg-midnight">
+    <footer className="bg-midnight relative z-20">
       <div className="container mx-auto py-6 px-4">
         <hr className="mb-6 border-color-base mx-auto" />
         <div className="flex items-center justify-between">

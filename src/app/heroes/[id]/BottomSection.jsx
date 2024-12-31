@@ -74,7 +74,7 @@ const BottomSection = ({ data }) => {
         <h1 className="pb-5 text-5xl text-highlight text-center font-tungsten uppercase">
           Skill introduction
         </h1>
-        <div className="w-full max-w-screen-xl min-h-[542px] flex space-x-5">
+        <div className="w-full max-w-screen-2xl min-h-[542px] flex space-x-5 px-4">
           <div className="w-5/12">
             <div className="relative w-full">
               <div className="relative w-full h-auto aspect-video bg-soft-white" />

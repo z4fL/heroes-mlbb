@@ -26,9 +26,11 @@ export default function RootLayout({ children }) {
     <html lang="en" className={`${poppins.variable} ${bebas.variable}`}>
       <body className={`bg-midnight ${poppins.className} antialiased`}>
         <ProgressBar className="fixed h-1 z-50 shadow-lg shadow-sky-500/20 bg-sky-500 top-12">
-          <Navbar />
-          {children}
-          <Footer />
+          <div className="relative">
+            <Navbar />
+            {children}
+            <Footer />
+          </div>
         </ProgressBar>
       </body>
     </html>
