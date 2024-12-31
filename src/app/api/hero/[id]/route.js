@@ -47,6 +47,7 @@ export async function GET(request, { params }) {
             },
           },
         },
+        orderBy: { id: "asc" },
       },
       skins: {
         include: {

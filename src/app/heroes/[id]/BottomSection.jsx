@@ -1,12 +1,20 @@
 "use client";
 
+import ArrowsRightLeft from "@/components/svg/ArrowsRightLeft";
 import ClockIcon from "@/components/svg/ClockIcon";
 import Image from "next/image";
 import { useState } from "react";
 
 const BottomSection = ({ data }) => {
-  const abilities = data.abilities;
-  const [activeAbility, setActiveAbility] = useState(abilities[0]);
+  const [abilities, setAbilities] = useState(() => {
+    return data.abilities.reduce((acc, ability) => {
+      if (!acc.some((item) => item.type === ability.type)) {
+        acc.push(ability);
+      }
+      return acc;
+    }, []);
+  });
+  const [activeAbility, setActiveAbility] = useState(data.abilities[0]);
 
   const cooldownScaling =
     activeAbility.scalings &&
@@ -28,6 +36,38 @@ const BottomSection = ({ data }) => {
     }
   };
 
+  const handleSwitch = () => {
+    setAbilities((prevAbilities) => {
+      const groupedByType = data.abilities.reduce((acc, ability) => {
+        acc[ability.type] = acc[ability.type] || [];
+        acc[ability.type].push(ability);
+        return acc;
+      }, {});
+
+      // Rotasi cyclic untuk setiap tipe
+      const switchedAbilities = prevAbilities.map((currentAbility) => {
+        const group = groupedByType[currentAbility.type];
+        const currentIndex = group.findIndex(
+          (item) => item.id === currentAbility.id
+        );
+        const nextIndex = (currentIndex + 1) % group.length;
+        return group[nextIndex];
+      });
+
+      // Update activeAbility jika ada
+      if (activeAbility) {
+        const activeGroup = groupedByType[activeAbility.type];
+        const activeIndex = activeGroup.findIndex(
+          (item) => item.id === activeAbility.id
+        );
+        const nextActiveIndex = (activeIndex + 1) % activeGroup.length;
+        setActiveAbility(activeGroup[nextActiveIndex]);
+      }
+
+      return switchedAbilities;
+    });
+  };
+
   return (
     <div className="relative z-10 pt-16 w-full bg-midnight min-h-[400px]">
       <div className="flex flex-col items-center">
@@ -35,7 +75,7 @@ const BottomSection = ({ data }) => {
           Skill introduction
         </h1>
         <div className="w-full max-w-screen-xl min-h-[542px] flex space-x-5">
-          <div className="w-[55%]">
+          <div className="w-5/12">
             <div className="relative w-full">
               <div className="relative w-full h-auto aspect-video bg-soft-white" />
               <div className="absolute inset-x-0 -bottom-10 flex w-full justify-center flex-wrap z-20">
@@ -43,7 +83,7 @@ const BottomSection = ({ data }) => {
                   <div
                     key={ability.id}
                     style={{ backgroundImage: `url('${ability.icon}')` }}
-                    className={`relative w-20 h-20 mx-1 mb-2 cursor-pointer bg-cover bg-center bg-no-repeat rounded-full transition transform ease-in-out duration-100 hover:scale-110 shadow-[0px_0px_10px_rgb(0,0,0)] ${
+                    className={`relative w-16 h-16 mx-1 mb-2 cursor-pointer bg-cover bg-center bg-no-repeat rounded-full transition transform ease-in-out duration-100 hover:scale-110 shadow-[0px_0px_10px_rgb(0,0,0)] ${
                       activeAbility.name === ability.name
                         ? "filter-none scale-110"
                         : "filter saturate-0 brightness-75"
@@ -52,9 +92,15 @@ const BottomSection = ({ data }) => {
                   />
                 ))}
               </div>
+              <div
+                className="absolute right-4 bottom-4 z-30 p-1 group border border-highlight hover:bg-highlight rounded-full cursor-pointer"
+                onClick={() => handleSwitch()}
+              >
+                <ArrowsRightLeft className="w-4 h-4 text-highlight group-hover:text-soft-white" />
+              </div>
             </div>
           </div>
-          <div className="w-[45%] min-h-0 flex flex-col items-center">
+          <div className="w-7/12 min-h-0 flex flex-col items-center">
             <div className="flex w-full p-2 bg-gray-800">
               {activeAbility.icon && (
                 <Image
@@ -66,7 +112,7 @@ const BottomSection = ({ data }) => {
                 />
               )}
               <div className="flex flex-col grow m-2">
-                <h2 className="font-dinnext text-xl uppercase font-bold text-soft-white">
+                <h2 className="font-dinnext text-xl uppercase font-bold text-soft-white select-none">
                   {activeAbility.name}
                 </h2>
                 <div className="flex items-center gap-2">
@@ -88,66 +134,65 @@ const BottomSection = ({ data }) => {
               </div>
             </div>
 
-            {activeAbility.type !== "Passive" &&
-              scallingsValue.length !== 0 && (
-                <div className="flex flex-col w-full bg-gray-950 px-7 py-3">
-                  <div className="flex justify-between flex-wrap pb-1 text-color-base">
-                    {cooldownScaling && (
-                      <CooldownDisplay
-                        levelValues={cooldownScaling.levelValues}
-                      />
-                    )}
-                    {costScaling && (
-                      <AbilityCostDisplay
-                        color={data.abilityResourceColor}
-                        levelValues={costScaling.levelValues}
-                      />
-                    )}
-                  </div>
+            {scallingsValue.length !== 0 && (
+              <div className="flex flex-col w-full bg-gray-950 px-7 py-3">
+                <div className="flex justify-between flex-wrap pb-1 text-color-base text-sm">
+                  {cooldownScaling && (
+                    <CooldownDisplay
+                      levelValues={cooldownScaling.levelValues}
+                    />
+                  )}
+                  {costScaling && (
+                    <AbilityCostDisplay
+                      color={data.abilityResourceColor}
+                      levelValues={costScaling.levelValues}
+                    />
+                  )}
+                </div>
 
-                  <div className="w-full flex">
-                    <div className="w-1/2 flex flex-col items-center">
-                      <div className="w-full flex flex-col flex-wrap items-center">
-                        {damageType && (
-                          <div className="w-full flex font-bold text-color-base uppercase whitespace-nowrap ">
-                            <p>Damage Type :</p>
-                            <p
-                              className="ml-1"
-                              style={{ color: damageType.color }}
-                            >
-                              {damageType.name}
-                            </p>
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="w-full flex flex-col pt-4">
-                    {scallingsValue
-                      .filter(
-                        (value) =>
-                          !value.type.includes("Cost") &&
-                          !value.type.includes("Cooldown")
-                      )
-                      .map((value) => (
-                        <div
-                          key={value.type}
-                          className="h-6 flex font-bold text-sm text-color-base uppercase"
-                        >
-                          {value.type}
-                          <p className="ml-1 text-highlight font-semibold ">
-                            {value.levelValues.all
-                              ? value.levelValues.all
-                              : Object.entries(value.levelValues)
-                                  .map(([_, value]) => value)
-                                  .join(" / ")}
+                <div className="w-full flex">
+                  <div className="w-1/2 flex flex-col items-center">
+                    <div className="w-full flex flex-col flex-wrap items-center">
+                      {damageType && (
+                        <div className="w-full flex font-bold text-color-base uppercase whitespace-nowrap ">
+                          <p>Damage Type :</p>
+                          <p
+                            className="ml-1"
+                            style={{ color: damageType.color }}
+                          >
+                            {damageType.name}
                           </p>
                         </div>
-                      ))}
+                      )}
+                    </div>
                   </div>
                 </div>
-              )}
+
+                <div className="w-full flex flex-col pt-4">
+                  {scallingsValue
+                    .filter(
+                      (value) =>
+                        !value.type.includes("Cost") &&
+                        !value.type.includes("Cooldown")
+                    )
+                    .map((value) => (
+                      <div
+                        key={value.type}
+                        className="h-6 flex font-bold text-sm text-color-base uppercase"
+                      >
+                        {value.type}
+                        <p className="ml-1 text-highlight font-semibold ">
+                          {value.levelValues.all
+                            ? value.levelValues.all
+                            : Object.entries(value.levelValues)
+                                .map(([_, value]) => value)
+                                .join(" / ")}
+                        </p>
+                      </div>
+                    ))}
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -197,7 +242,13 @@ function FormatDescription({ description, descValues, skillTerms }) {
 function CooldownDisplay({ levelValues }) {
   return (
     <div className="flex items-center">
-      <ClockIcon className="w-4 h-4" />
+      <Image
+        src="/images/cooldown.png"
+        alt="cooldown icon"
+        width={16}
+        height={16}
+        className="rounded-sm"
+      />
       <div className="ml-1">
         {levelValues.all ? (
           <span>{levelValues.all}</span>
@@ -220,7 +271,7 @@ function AbilityCostDisplay({ color, levelValues }) {
         style={{
           backgroundColor: color,
         }}
-        className="w-4 h-4"
+        className="w-4 h-4 rounded-sm"
       />
       <div className="ml-1">
         {levelValues.all ? (
