@@ -10,7 +10,7 @@ const navigation = [
   { name: "Homepage", href: "/" },
   { name: "All Heroes", href: "/heroes" },
   { name: "Equipment", href: "/equipment" },
-  { name: "Gallery List", href: "/squads/oriental-fighter" },
+  { name: "Gallery List", href: "/gallery-list" },
 ];
 
 const Navbar = () => {
