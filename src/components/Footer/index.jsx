@@ -43,8 +43,8 @@ const Footer = () => {
       <div className="container mx-auto py-6 px-4">
         <hr className="mb-6 border-color-base mx-auto" />
         <div className="flex items-center justify-between">
-          <span className="flex text-sm text-color-base">
-            © 2024{" "}
+          <span className="flex text-sm text-color-base items-center">
+            @ 2024{" "}
             <div href="#" className="ml-2 hover:underline">
               Z4FL
             </div>

@@ -14,7 +14,7 @@ const BottomNavigation = ({ data }) => {
           height={390}
           alt={data.prev.name}
           quality={40}
-          className="absolute z-20 right-60 -bottom-5 pointer-events-none w-40 h-auto transform transition-all duration-300 group-hover:bottom-0"
+          className="absolute z-20 right-60 -bottom-5 pointer-events-none w-40 h-auto mask-fade transform transition-all duration-300 group-hover:bottom-0"
         />
         <span className="font-tungsten text-color-base text-6xl">
           {data.prev.name}
@@ -30,7 +30,7 @@ const BottomNavigation = ({ data }) => {
           height={390}
           alt={data.next.name}
           quality={40}
-          className="absolute z-20 left-60 -bottom-5 pointer-events-none w-40 h-auto transform transition-all duration-300 group-hover:bottom-0"
+          className="absolute z-20 left-60 -bottom-5 pointer-events-none w-40 h-auto mask-fade transform transition-all duration-300 group-hover:bottom-0"
         />
         <span className="font-tungsten text-color-base text-6xl">
           {data.next.name}

@@ -12,6 +12,29 @@
   src: url("../../public/fonts/DINNextW05.ttf");
 }
 
+@layer utilities {
+  .mask-fade {
+    mask-image: linear-gradient(
+        to bottom,
+        transparent,
+        black 10%,
+        black 90%,
+        transparent
+      ),
+      linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(
+        to bottom,
+        transparent,
+        black 10%,
+        black 90%,
+        transparent
+      ),
+      linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    mask-composite: intersect;
+    -webkit-mask-composite: destination-in;
+  }
+}
+
 .tooltip {
   @apply invisible absolute;
 }

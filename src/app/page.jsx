@@ -39,6 +39,7 @@ export default function Home() {
           <Image
             src={KugisakiNobara}
             alt="Kugisaki Nobara"
+            quality={60}
             className="w-full object-cover h-auto mt-20"
           />
         </div>
@@ -69,6 +70,7 @@ export default function Home() {
           <Image
             src={MWorldLing}
             alt="M World Ling"
+            quality={60}
             className="w-full object-cover h-auto mt-12"
           />
         </div>
