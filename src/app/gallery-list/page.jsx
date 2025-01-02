@@ -1,33 +1,48 @@
+"use client"
+
 const GalleryList = () => {
+  const items = [
+    { image: "/images/gallery/legend/Hero2210-splashart.jpg", title: "Galactic Vanquisher" },
+    { image: "/images/gallery/legend/Hero2210-splashart.jpg", title: "Galactic Vanquisher" },
+    { image: "/images/gallery/legend/Hero2210-splashart.jpg", title: "Galactic Vanquisher" },
+    { image: "/images/gallery/legend/Hero2210-splashart.jpg", title: "Galactic Vanquisher" },
+    { image: "/images/gallery/legend/Hero2210-splashart.jpg", title: "Galactic Vanquisher" },
+    { image: "/images/gallery/legend/Hero2210-splashart.jpg", title: "Galactic Vanquisher" },
+  ];
+
+  const defaultColumns = items.map(() => "1fr").join(" ");
+
+  const getGridStyle = (hoverIndex) =>
+    items.map((_, i) => (i === hoverIndex ? "3fr" : "1fr")).join(" ");
+
   return (
     <main className="flex flex-col items-center mt-10 bg-midnight max-w-screen-2xl mx-auto">
-      <div className="min-h-screen flex flex-col justify-center items-center">
+      <div className="min-h-screen flex flex-col justify-center items-center overflow-x-hidden">
         <div
           className={classNames(
-            "mt-20 relative grid grid-cols-[1fr_1fr_1fr_1fr_1fr_1fr] gap-4 w-[1280px] h-[500px] group/container transition-all duration-300",
-            "[&:has(.box-1:hover)]:grid-cols-[3fr_1fr_1fr_1fr_1fr_1fr]",
-            "[&:has(.box-2:hover)]:grid-cols-[1fr_3fr_1fr_1fr_1fr_1fr]",
-            "[&:has(.box-3:hover)]:grid-cols-[1fr_1fr_3fr_1fr_1fr_1fr]",
-            "[&:has(.box-4:hover)]:grid-cols-[1fr_1fr_1fr_3fr_1fr_1fr]",
-            "[&:has(.box-5:hover)]:grid-cols-[1fr_1fr_1fr_1fr_3fr_1fr]",
-            "[&:has(.box-6:hover)]:grid-cols-[1fr_1fr_1fr_1fr_1fr_3fr]"
+            "mt-20 relative grid gap-4 w-[1280px] h-[500px] group/container transition-all duration-300",
           )}
+          style={{
+            gridTemplateColumns: defaultColumns
+          }}
         >
-          {Array.from({ length: 6 }, (_, i) => (
+          {items.map((item, i) => (
             <div
               key={i}
               style={{
                 backgroundImage:
-                  "url(/images/gallery/legend/Hero2210-splashart.jpg)",
+                  `url(${item.image})`,
               }}
               className={classNames(
                 `box-${i + 1}`,
                 "group relative bg-center bg-no-repeat bg-cover flex justify-center items-center transition-all duration-300",
                 `group-hover/container:grayscale group-hover/container:opacity-25 group-hover/container:hover:grayscale-0 group-hover/container:hover:opacity-100`
               )}
+              onMouseEnter={(e) => (e.currentTarget.parentElement.style.gridTemplateColumns = getGridStyle(i))}
+              onMouseLeave={(e) => (e.currentTarget.parentElement.style.gridTemplateColumns = defaultColumns)}
             >
               <span className="absolute bottom-5 p-2.5 bg-midnight text-soft-white text-nowrap tracking-wider uppercase transform translate-y-14 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 group-hover:delay-300">
-                Galactic Vanquisher
+                {item.title}
               </span>
             </div>
           ))}
