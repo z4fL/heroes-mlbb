@@ -5,7 +5,7 @@ export const getData = async (resource) => {
 };
 
 export const getRoles = async () => {
-  const roles = await getData("/api/data/role");
+  const roles = await getData("/api/role");
 
   return [
     {
