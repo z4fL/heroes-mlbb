@@ -12,7 +12,7 @@ module.exports = [
     icon: "/images/heroes/116/skins/Hero1163-icon.png",
     portrait: "/images/heroes/116/skins/Hero1163-portrait.png",
     splashArt: "/images/heroes/116/skins/Hero1163-splashart.png",
-    skinTagId: 57,
+    skinTagId: 53,
   },
   {
     heroId: 116,
@@ -20,6 +20,6 @@ module.exports = [
     icon: "/images/heroes/116/skins/Hero1167-icon.png",
     portrait: "/images/heroes/116/skins/Hero1167-portrait.png",
     splashArt: "/images/heroes/116/skins/Hero1167-splashart.png",
-    skinTagId: 60,
+    skinTagId: 56,
   },
 ];

@@ -20,7 +20,7 @@ module.exports = [
     icon: "/images/heroes/68/skins/Hero684-icon.png",
     portrait: "/images/heroes/68/skins/Hero684-portrait.png",
     splashArt: "/images/heroes/68/skins/Hero684-splashart.jpg",
-    skinTagId: 21,
+    skinTagId: 20,
   },
   {
     heroId: 68,
@@ -28,7 +28,7 @@ module.exports = [
     icon: "/images/heroes/68/skins/Hero685-icon.png",
     portrait: "/images/heroes/68/skins/Hero685-portrait.png",
     splashArt: "/images/heroes/68/skins/Hero685-splashart.jpg",
-    skinTagId: 36,
+    skinTagId: 32,
   },
   {
     heroId: 68,
@@ -36,7 +36,7 @@ module.exports = [
     icon: "/images/heroes/68/skins/Hero686-icon.png",
     portrait: "/images/heroes/68/skins/Hero686-portrait.png",
     splashArt: "/images/heroes/68/skins/Hero686-splashart.jpg",
-    skinTagId: 31,
+    skinTagId: 27,
   },
   {
     heroId: 68,
@@ -60,7 +60,8 @@ module.exports = [
     icon: "/images/heroes/68/skins/Hero689-icon.png",
     portrait: "/images/heroes/68/skins/Hero689-portrait.png",
     splashArt: "/images/heroes/68/skins/Hero689-splashart.jpg",
-    skinTagId: 61,
+    crop: "/images/gallery/legend/Hero689-splashart.png",
+    skinTagId: 57,
   },
   {
     heroId: 68,

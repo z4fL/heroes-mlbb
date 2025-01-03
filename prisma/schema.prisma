@@ -91,15 +91,19 @@ model Skin {
   icon      String   @db.VarChar(255)
   portrait  String   @db.VarChar(255)
   splashArt String   @db.VarChar(255)
+  crop      String?  @db.VarChar(255)
   skinTag   SkinTag? @relation(fields: [skinTagId], references: [id])
   skinTagId Int?
 }
 
 model SkinTag {
-  id    Int    @id @default(autoincrement())
-  name  String @unique @db.VarChar(25)
-  icon  String @db.VarChar(255)
-  skins Skin[]
+  id               Int     @id @default(autoincrement())
+  name             String  @unique @db.VarChar(25)
+  collectionValues Int[]
+  icon             String  @db.VarChar(255)
+  isGallery        Boolean
+  group            String?
+  skins            Skin[]
 }
 
 // Pivot Tables
