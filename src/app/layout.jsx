@@ -1,20 +1,8 @@
-import { Poppins, Bebas_Neue } from "next/font/google";
+import {poppins, bebas, tungsten, dinnext} from "./fonts"
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { ProgressBar } from "./progress-bar";
-
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800", "900"],
-  variable: "--font-poppins",
-});
-
-const bebas = Bebas_Neue({
-  subsets: ["latin"],
-  weight: ["400"],
-  variable: "--font-bebas",
-});
 
 export const metadata = {
   title: "Heroes",
@@ -23,7 +11,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${poppins.variable} ${bebas.variable}`}>
+    <html lang="en" className={`${poppins.variable} ${bebas.variable} ${tungsten.variable} ${dinnext.variable}`}>
       <body className={`bg-midnight ${poppins.className} antialiased`}>
         <ProgressBar className="fixed h-1 z-50 shadow-lg shadow-sky-500/20 bg-sky-500 top-12">
           <div className="relative">

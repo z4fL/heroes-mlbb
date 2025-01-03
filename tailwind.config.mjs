@@ -19,8 +19,8 @@ export default {
       fontFamily: {
         poppins: ["var(--font-poppins)"],
         bebas: ["var(--font-bebas)"],
-        tungsten: ["Tungsten", "sans-serif"],
-        dinnext: ["DINNextW05", "sans-serif"],
+        tungsten: ["var(--font-tungsten)"],
+        dinnext: ["var(--font-dinnext)"],
       },
     },
   },
