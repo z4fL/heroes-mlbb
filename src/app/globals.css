@@ -56,7 +56,7 @@ img {
   user-select: none !important;
 }
 
-/* button */
+/* start button */
 .btn {
   --background-color: theme(colors.midnight);
   --button-background-color: theme(colors.color-base);
@@ -147,3 +147,4 @@ img {
   --button-inner-border-color: var(--highlight-color);
   --button-text-color-hover: theme(colors.midnight);
 }
+/* end button */
