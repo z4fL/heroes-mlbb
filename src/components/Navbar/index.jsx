@@ -8,8 +8,15 @@ import { ProgressBarLink } from "@/app/progress-bar";
 
 const navigation = [
   { name: "Homepage", href: "/" },
-  { name: "All Heroes", href: "/heroes" },
-  { name: "Equipment", href: "/equipment" },
+  { name: "Heroes", href: "/heroes" },
+  {
+    name: "Preparation",
+    href: "#",
+    children: [
+      { name: "Equipment", href: "/equipment" },
+      { name: "Emblem & Talent", href: "/emblem-talent" },
+    ],
+  },
   { name: "Gallery List", href: "/gallery-list" },
 ];
 
@@ -72,18 +79,33 @@ const Navbar = () => {
           <div className="hidden sm:ml-6 sm:block">
             <div className="flex space-x-4">
               {navigation.map((item) => (
-                <ProgressBarLink
-                  key={item.name}
-                  href={item.href}
-                  className={`${
-                    pathName === item.href ||
-                    (pathName.startsWith("/heroes/") && item.href === "/heroes")
-                      ? "bg-highlight text-midnight"
-                      : "text-soft-white hover:bg-info"
-                  } block p-3 text-base font-dinnext uppercase font-bold`}
-                >
-                  {item.name}
-                </ProgressBarLink>
+                <div key={item.name} className="relative group">
+                  <ProgressBarLink
+                    href={item.href}
+                    className={`${
+                      pathName === item.href ||
+                      (pathName.startsWith("/heroes/") &&
+                        item.href === "/heroes")
+                        ? "bg-highlight text-midnight"
+                        : "text-soft-white hover:bg-info"
+                    } block p-3 text-base font-dinnext uppercase font-bold`}
+                  >
+                    {item.name}
+                  </ProgressBarLink>
+                  {item.children && (
+                    <div className="absolute hidden group-hover:block bg-midnight">
+                      {item.children.map((subItem) => (
+                        <ProgressBarLink
+                          key={subItem.name}
+                          href={subItem.href}
+                          className="block p-3 text-base font-dinnext uppercase font-bold text-soft-white text-nowrap hover:bg-info"
+                        >
+                          {subItem.name}
+                        </ProgressBarLink>
+                      ))}
+                    </div>
+                  )}
+                </div>
               ))}
             </div>
           </div>
