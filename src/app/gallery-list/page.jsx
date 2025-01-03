@@ -1,57 +1,58 @@
-"use client"
+"use client";
+
+import { useGallery } from "./gallery-provider";
 
 const GalleryList = () => {
-  const items = [
-    { image: "/images/gallery/legend/Hero2210-splashart.jpg", title: "Galactic Vanquisher" },
-    { image: "/images/gallery/legend/Hero2210-splashart.jpg", title: "Galactic Vanquisher" },
-    { image: "/images/gallery/legend/Hero2210-splashart.jpg", title: "Galactic Vanquisher" },
-    { image: "/images/gallery/legend/Hero2210-splashart.jpg", title: "Galactic Vanquisher" },
-    { image: "/images/gallery/legend/Hero2210-splashart.jpg", title: "Galactic Vanquisher" },
-    { image: "/images/gallery/legend/Hero2210-splashart.jpg", title: "Galactic Vanquisher" },
-  ];
+  const { skins } = useGallery();
+  
+  const splitItems =
+    skins.length > 6 ? [skins.slice(0, 6), skins.slice(6)] : [skins];
 
-  const defaultColumns = items.map(() => "1fr").join(" ");
-
-  const getGridStyle = (hoverIndex) =>
-    items.map((_, i) => (i === hoverIndex ? "3fr" : "1fr")).join(" ");
+  const getGridStyle = (hoverIndex, group) =>
+    group.map((_, i) => (i === hoverIndex ? "3fr" : "1fr")).join(" ");
 
   return (
-    <main className="flex flex-col items-center mt-10 bg-midnight max-w-screen-2xl mx-auto">
-      <div className="min-h-screen flex flex-col justify-center items-center overflow-x-hidden">
+    <div>
+      {splitItems.map((group, groupIndex) => (
         <div
+          key={groupIndex}
           className={classNames(
-            "mt-20 relative grid gap-4 w-[1280px] h-[500px] group/container transition-all duration-300",
+            "relative grid gap-4 w-[1024px] h-[500px] group/container transition-all duration-300"
           )}
           style={{
-            gridTemplateColumns: defaultColumns
+            gridTemplateColumns: group.map(() => "1fr").join(" "),
           }}
         >
-          {items.map((item, i) => (
+          {group.map((item, i) => (
             <div
               key={i}
               style={{
-                backgroundImage:
-                  `url(${item.image})`,
+                backgroundImage: `url(${item.crop ?? item.splashArt})`,
               }}
               className={classNames(
-                `box-${i + 1}`,
-                "group relative bg-center bg-no-repeat bg-cover flex justify-center items-center transition-all duration-300",
+                "mt-5 group relative bg-center bg-no-repeat bg-cover flex justify-center items-center transition-all duration-300",
                 `group-hover/container:grayscale group-hover/container:opacity-25 group-hover/container:hover:grayscale-0 group-hover/container:hover:opacity-100`
               )}
-              onMouseEnter={(e) => (e.currentTarget.parentElement.style.gridTemplateColumns = getGridStyle(i))}
-              onMouseLeave={(e) => (e.currentTarget.parentElement.style.gridTemplateColumns = defaultColumns)}
+              onMouseEnter={(e) =>
+                (e.currentTarget.parentElement.style.gridTemplateColumns =
+                  getGridStyle(i, group))
+              }
+              onMouseLeave={(e) =>
+                (e.currentTarget.parentElement.style.gridTemplateColumns = group
+                  .map(() => "1fr")
+                  .join(" "))
+              }
             >
               <span className="absolute bottom-5 p-2.5 bg-midnight text-soft-white text-nowrap tracking-wider uppercase transform translate-y-14 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 group-hover:delay-300">
-                {item.title}
+                {item.name}
               </span>
             </div>
           ))}
         </div>
-      </div>
-    </main>
+      ))}
+    </div>
   );
 };
-
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
