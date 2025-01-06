@@ -106,6 +106,29 @@ model SkinTag {
   skins            Skin[]
 }
 
+model Emblem {
+  id         Int      @id @default(autoincrement())
+  name       String   @unique @db.VarChar(40)
+  icon       String   @db.VarChar(255)
+  attributes Json
+  talents    Talent[]
+}
+
+model Talent {
+  id           Int     @id @default(autoincrement())
+  emblem       Emblem  @relation(fields: [emblemId], references: [id])
+  emblemId     Int
+  type         String  @db.VarChar(10)
+  name         String  @unique @db.VarChar(40)
+  icon         String  @db.VarChar(255)
+  info         String? @db.VarChar(60)
+  description  String  @db.Text
+  infoDesc     String? @db.VarChar(255)
+  cooldown     Int?
+  duration     Int?
+  infoCooldown String? @db.VarChar(60)
+}
+
 // Pivot Tables
 model HeroesOnRoles {
   hero       Hero @relation(fields: [heroId], references: [id])

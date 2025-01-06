@@ -83,6 +83,7 @@ CREATE TABLE "Skin" (
     "icon" VARCHAR(255) NOT NULL,
     "portrait" VARCHAR(255) NOT NULL,
     "splashArt" VARCHAR(255) NOT NULL,
+    "crop" VARCHAR(255),
     "skinTagId" INTEGER,
 
     CONSTRAINT "Skin_pkey" PRIMARY KEY ("id")
@@ -98,6 +99,33 @@ CREATE TABLE "SkinTag" (
     "group" TEXT,
 
     CONSTRAINT "SkinTag_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "Emblem" (
+    "id" SERIAL NOT NULL,
+    "name" VARCHAR(40) NOT NULL,
+    "icon" VARCHAR(255) NOT NULL,
+    "attributes" JSONB NOT NULL,
+
+    CONSTRAINT "Emblem_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "Talent" (
+    "id" SERIAL NOT NULL,
+    "emblemId" INTEGER NOT NULL,
+    "type" VARCHAR(10) NOT NULL,
+    "name" VARCHAR(40) NOT NULL,
+    "icon" VARCHAR(255) NOT NULL,
+    "info" VARCHAR(60),
+    "description" TEXT NOT NULL,
+    "infoDesc" VARCHAR(255),
+    "cooldown" INTEGER,
+    "duration" INTEGER,
+    "infoCooldown" VARCHAR(60),
+
+    CONSTRAINT "Talent_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
@@ -151,6 +179,12 @@ CREATE UNIQUE INDEX "SkillTerm_name_key" ON "SkillTerm"("name");
 CREATE UNIQUE INDEX "SkinTag_name_key" ON "SkinTag"("name");
 
 -- CreateIndex
+CREATE UNIQUE INDEX "Emblem_name_key" ON "Emblem"("name");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "Talent_name_key" ON "Talent"("name");
+
+-- CreateIndex
 CREATE INDEX "_AbilityToSkillTerm_B_index" ON "_AbilityToSkillTerm"("B");
 
 -- AddForeignKey
@@ -161,6 +195,9 @@ ALTER TABLE "Skin" ADD CONSTRAINT "Skin_heroId_fkey" FOREIGN KEY ("heroId") REFE
 
 -- AddForeignKey
 ALTER TABLE "Skin" ADD CONSTRAINT "Skin_skinTagId_fkey" FOREIGN KEY ("skinTagId") REFERENCES "SkinTag"("id") ON DELETE SET NULL ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "Talent" ADD CONSTRAINT "Talent_emblemId_fkey" FOREIGN KEY ("emblemId") REFERENCES "Emblem"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "HeroesOnRoles" ADD CONSTRAINT "HeroesOnRoles_heroId_fkey" FOREIGN KEY ("heroId") REFERENCES "Hero"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
