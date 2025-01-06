@@ -10,6 +10,7 @@ const Lunox = require("./data/Lunox");
 const Ling = require("./data/Ling");
 const Julian = require("./data/Julian");
 const skins = require("./skins");
+const { emblem, talents } = require("./emblem_talents");
 
 const prisma = new PrismaClient();
 
@@ -26,6 +27,13 @@ async function main() {
 
   await prisma.skin.createMany({
     data: skins,
+  });
+
+  await prisma.emblem.createMany({
+    data: emblem,
+  });
+  await prisma.talent.createMany({
+    data: talents,
   });
 }
 
