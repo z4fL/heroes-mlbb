@@ -88,7 +88,7 @@ const Navbar = () => {
                         item.href === "/heroes")
                         ? "bg-highlight text-midnight"
                         : "text-soft-white hover:bg-info"
-                    } block p-3 text-base font-dinnext uppercase font-bold`}
+                    } block p-3 text-base font-dinnext uppercase font-medium`}
                   >
                     {item.name}
                   </ProgressBarLink>
@@ -98,7 +98,7 @@ const Navbar = () => {
                         <ProgressBarLink
                           key={subItem.name}
                           href={subItem.href}
-                          className="block p-3 text-base font-dinnext uppercase font-bold text-soft-white text-nowrap hover:bg-info"
+                          className="block p-3 text-base font-dinnext uppercase font-medium text-soft-white text-nowrap hover:bg-info"
                         >
                           {subItem.name}
                         </ProgressBarLink>

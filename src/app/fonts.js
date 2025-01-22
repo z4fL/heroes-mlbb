@@ -51,6 +51,8 @@ const tungsten = localFont({
   src: [
     {
       path: "../../public/fonts/Tungsten-Bold.ttf",
+      weight: "700",
+      style: "normal",
     },
   ],
   variable: "--font-tungsten",
@@ -59,7 +61,19 @@ const tungsten = localFont({
 const dinnext = localFont({
   src: [
     {
-      path: "../../public/fonts/DINNextW05.ttf",
+      path: "../../public/fonts/URWDIN/URWDIN-Regular.ttf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/URWDIN/URWDIN-Medium.ttf",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/URWDIN/URWDIN-Bold.ttf",
+      weight: "700",
+      style: "normal",
     },
   ],
   variable: "--font-dinnext",

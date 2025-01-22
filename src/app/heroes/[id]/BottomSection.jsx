@@ -69,21 +69,20 @@ const BottomSection = ({ data }) => {
   };
 
   return (
-    <div className="relative z-10 pt-16 w-full bg-midnight min-h-[400px]">
+    <div className="relative z-10 py-16 w-full bg-midnight">
       <div className="flex flex-col items-center">
         <h1 className="pb-5 text-5xl text-highlight text-center font-tungsten uppercase">
           Skill introduction
         </h1>
-        <div className="w-full max-w-screen-2xl min-h-[542px] flex space-x-5 px-4">
-          <div className="w-5/12">
+        <div className="w-full max-w-screen-lg min-h-[542px] flex space-x-5 px-4">
+          <div className="w-2/12">
             <div className="relative w-full">
-              <div className="relative w-full h-auto aspect-video bg-soft-white" />
-              <div className="absolute inset-x-0 -bottom-10 flex w-full justify-center flex-wrap z-20">
+              <div className="flex flex-col w-full items-center flex-wrap z-20">
                 {abilities.map((ability) => (
                   <div
                     key={ability.id}
                     style={{ backgroundImage: `url('${ability.icon}')` }}
-                    className={`relative w-16 h-16 mx-1 mb-2 cursor-pointer bg-cover bg-center bg-no-repeat rounded-full transition transform ease-in-out duration-100 hover:scale-110 shadow-[0px_0px_10px_rgb(0,0,0)] ${
+                    className={`relative w-16 h-16 m-1 cursor-pointer bg-cover bg-center bg-no-repeat rounded-full transition transform ease-in-out duration-100 hover:scale-110 shadow-[0px_0px_10px_rgb(0,0,0)] ${
                       activeAbility.name === ability.name
                         ? "filter-none scale-110"
                         : "filter saturate-0 brightness-75"
@@ -93,14 +92,14 @@ const BottomSection = ({ data }) => {
                 ))}
               </div>
               <div
-                className="absolute right-4 bottom-4 z-30 p-1 group border border-highlight hover:bg-highlight rounded-full cursor-pointer"
+                className="absolute right-2 top-0 z-30 p-1 group border border-highlight hover:bg-highlight rounded-full cursor-pointer"
                 onClick={() => handleSwitch()}
               >
                 <ArrowsRightLeft className="w-4 h-4 text-highlight group-hover:text-soft-white" />
               </div>
             </div>
           </div>
-          <div className="w-7/12 min-h-0 flex flex-col items-center">
+          <div className="w-10/12 min-h-0 flex flex-col items-center">
             <div className="flex w-full p-2 bg-gray-800">
               {activeAbility.icon && (
                 <Image

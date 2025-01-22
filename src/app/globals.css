@@ -2,16 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: "Tungsten";
-  src: url("../../public/fonts/Tungsten-Bold.ttf");
-}
-
-@font-face {
-  font-family: "DINNextW05";
-  src: url("../../public/fonts/DINNextW05.ttf");
-}
-
 @layer utilities {
   .mask-fade {
     mask-image: linear-gradient(
